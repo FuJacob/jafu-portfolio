@@ -48,7 +48,7 @@ export default function Home() {
             },
           ]);
         }
-      } catch (error) {
+      } catch {
         setMessages((prev) => [
           ...prev,
           {
@@ -94,7 +94,7 @@ export default function Home() {
               <Messages messages={messages} isLoading={isLoading} />
             </div>
 
-            <div className="flex-shrink-0 pt-2 sm:pt-4 space-y-2 sm:space-y-4">
+            <div className="flex-shrink-0 pt-2 sm:pt-4">
               <ChatInput
                 value={inputValue}
                 onChange={setInputValue}
@@ -102,8 +102,8 @@ export default function Home() {
                 onClear={handleClearChat}
                 showClear={hasMessages}
                 disabled={isLoading}
+                socialLinks={<SocialLinks />}
               />
-              <SocialLinks />
             </div>
           </>
         ) : (
@@ -119,8 +119,8 @@ export default function Home() {
                 onClear={handleClearChat}
                 showClear={hasMessages}
                 disabled={isLoading}
+                socialLinks={<SocialLinks />}
               />
-              <SocialLinks />
             </div>
           </>
         )}

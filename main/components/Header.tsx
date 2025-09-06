@@ -15,12 +15,12 @@ export default function Header() {
       </div>
       <div className="flex-1 text-center sm:text-left">
         <h1 className="text-3xl sm:text-5xl font-bold tracking-tight mb-3 sm:mb-4">
-          hello! i'm jacob fu <span className="ml-2 sm:ml-4">:{" )"}</span>
+          hello! i&apos;m jacob fu <span className="ml-2 sm:ml-4">:{" )"}</span>
         </h1>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-4 sm:gap-x-8 gap-y-1 sm:gap-y-2 text-xs sm:text-sm">
           <div>• incoming @hubspot</div>
-          <div>• cs & finance @uwaterloo '29</div>
-          <div>• looking for internships W'26, S'26</div>
+          <div>• cs & finance @uwaterloo &apos;29</div>
+          <div>• looking for internships W&apos;26, S&apos;26</div>
           <div>• waterloo, on</div>
         </div>
       </div>
