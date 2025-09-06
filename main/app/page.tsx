@@ -12,14 +12,22 @@ interface Message {
 }
 
 export default function Home() {
-  const [messages, setMessages] = useState<Message[]>([]);
+  const [messages, setMessages] = useState<Message[]>([
+    {
+      text: "hey thanks for visiting my site, feel free to chat about anything",
+      isUser: false,
+    },
+    { text: "sick let's chat about ...", isUser: true },
+  ]);
   const [inputValue, setInputValue] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (message?: string) => {
     const userMessage = message || inputValue.trim();
     if (userMessage) {
-      setMessages((prev) => [...prev, { text: userMessage, isUser: true }]);
+      // Clear fake messages when starting real conversation
+      const realMessages = messages.length === 2 ? [] : messages;
+      setMessages([...realMessages, { text: userMessage, isUser: true }]);
       if (!message) setInputValue("");
       setIsLoading(true);
 
@@ -67,31 +75,41 @@ export default function Home() {
   };
 
   const handleClearChat = () => {
-    setMessages([]);
+    setMessages([
+      {
+        text: "hey thanks for visiting my site, feel free to chat about anything",
+        isUser: false,
+      },
+      { text: "sick let's chat about ...", isUser: true },
+    ]);
     setInputValue("");
   };
 
-  const hasMessages = messages.length > 0;
+  const hasRealMessages = messages.length > 0;
 
   return (
     <div
       className={`h-screen flex flex-col ${
-        hasMessages ? "pt-42" : "justify-center"
+        hasRealMessages ? "pt-42" : "justify-center"
       } items-center p-4 sm:p-8`}
     >
       <div
         className={`w-full max-w-2xl ${
-          hasMessages ? "h-full flex flex-col" : "space-y-4 sm:space-y-6"
+          hasRealMessages ? "h-full flex flex-col" : "space-y-4 sm:space-y-6"
         }`}
       >
-        {hasMessages ? (
+        {hasRealMessages ? (
           <>
             <div className="flex-shrink-0">
               <Header />
             </div>
 
             <div className="flex-1 min-h-0">
-              <Messages messages={messages} isLoading={isLoading} />
+              <Messages
+                messages={messages}
+                isLoading={isLoading}
+                fullHeight={true}
+              />
             </div>
 
             <div className="flex-shrink-0 pt-2 sm:pt-4">
@@ -100,7 +118,7 @@ export default function Home() {
                 onChange={setInputValue}
                 onSubmit={() => handleSubmit()}
                 onClear={handleClearChat}
-                showClear={hasMessages}
+                showClear={hasRealMessages}
                 disabled={isLoading}
                 socialLinks={<SocialLinks />}
               />
@@ -109,7 +127,7 @@ export default function Home() {
         ) : (
           <>
             <Header />
-            <Messages messages={messages} />
+            <Messages messages={messages} fullHeight={false} />
             <div className="space-y-2 sm:space-y-3">
               <InfoBubbles onBubbleClick={handleBubbleClick} />
               <ChatInput
@@ -117,7 +135,7 @@ export default function Home() {
                 onChange={setInputValue}
                 onSubmit={() => handleSubmit()}
                 onClear={handleClearChat}
-                showClear={hasMessages}
+                showClear={hasRealMessages}
                 disabled={isLoading}
                 socialLinks={<SocialLinks />}
               />

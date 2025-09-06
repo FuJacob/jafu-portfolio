@@ -6,13 +6,14 @@ interface Message {
 interface MessagesProps {
   messages: Message[];
   isLoading?: boolean;
+  fullHeight?: boolean;
 }
 
-export default function Messages({ messages, isLoading }: MessagesProps) {
+export default function Messages({ messages, isLoading, fullHeight = true }: MessagesProps) {
   if (messages.length === 0) return null;
 
   return (
-    <div className="h-full overflow-y-auto py-2 sm:py-4">
+    <div className={`${fullHeight ? 'h-full' : ''} overflow-y-auto py-2 sm:py-4`}>
       <div className="space-y-2 sm:space-y-3">
         {messages.map((message, index) => (
           <div 
