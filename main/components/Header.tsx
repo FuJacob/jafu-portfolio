@@ -21,7 +21,7 @@ export default function Header() {
           <div>• incoming @hubspot</div>
           <div>• cs & finance @uwaterloo &apos;29</div>
           <div>• looking for internships W&apos;26, S&apos;26</div>
-          <div>• waterloo, on</div>
+          <div>• waterloo, ON, canada</div>
         </div>
       </div>
     </div>

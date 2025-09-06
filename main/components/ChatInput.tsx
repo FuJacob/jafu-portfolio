@@ -50,9 +50,9 @@ export default function ChatInput({
           <button
             type="button"
             onClick={onClear}
-            className="absolute left-2 top-3 p-1.5 sm:p-2 hover:bg-gray-100 rounded-full"
+            className="absolute left-2 top-2 p-2 hover:bg-gray-100 rounded-full"
           >
-            <FaTimes className="w-3 h-3 sm:w-4 sm:h-4" />
+            <FaTimes className="w-3 h-3 text-gray-500" />
           </button>
         )}
       </form>
