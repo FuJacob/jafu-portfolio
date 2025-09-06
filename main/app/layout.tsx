@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { DynaPuff } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next";
 
 const dynaPuff = DynaPuff({
   variable: "--font-dyna-puff",
@@ -19,7 +20,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dynaPuff.variable} antialiased`}>{children}</body>
+      <body className={`${dynaPuff.variable} antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   );
 }
