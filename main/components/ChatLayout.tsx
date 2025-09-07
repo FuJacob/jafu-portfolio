@@ -34,8 +34,8 @@ export default function ChatLayout({
   return (
     <div
       className={`h-screen flex flex-col ${
-        hasStartedConvo ? "pt-42" : "justify-center"
-      } items-center p-4 sm:p-8`}
+        hasStartedConvo ? "pt-0 sm:pt-42" : "justify-center"
+      } items-center p-2 sm:p-8`}
       style={{
         backgroundImage: "url('/bg.svg')",
         backgroundPosition: "center",
@@ -43,7 +43,7 @@ export default function ChatLayout({
       }}
     >
       <div
-        className={`relative z-10 w-full max-w-3xl border border-gray-300 rounded-2xl bg-white p-8 transition-all duration-700 ease-in-out ${
+        className={`relative z-10 w-full max-w-3xl border-0 sm:border border-gray-300 rounded-none sm:rounded-2xl bg-white p-4 sm:p-8 transition-all duration-700 ease-in-out ${
           hasStartedConvo ? "h-full flex flex-col" : "space-y-4 sm:space-y-6"
         }`}
       >
