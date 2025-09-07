@@ -19,7 +19,7 @@ const Icon = ({
     href={link}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-300 rounded-full bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 transition-all"
+    className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-300 rounded-full bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 hover:scale-110 hover:shadow-md transition-all duration-300"
   >
     <div className="w-3 h-3 sm:w-4 sm:h-4 flex items-center justify-center">
       {children}
@@ -42,8 +42,8 @@ const Button = ({
   <button
     onClick={onClick}
     disabled={disabled}
-    className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-300 rounded-full bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 transition-all ${
-      disabled ? "opacity-50 cursor-not-allowed" : ""
+    className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-300 rounded-full bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 hover:scale-110 hover:shadow-md transition-all duration-300 ${
+      disabled ? "opacity-50 cursor-not-allowed hover:scale-100 hover:shadow-none" : ""
     }`}
   >
     <div className="w-3 h-3 sm:w-4 sm:h-4 flex items-center justify-center">
@@ -93,7 +93,7 @@ export default function ActionButtons({
         <button
           onClick={onSubmit}
           disabled={disabled}
-          className="p-1.5 sm:p-3 bg-black text-white hover:bg-gray-800 rounded-full disabled:opacity-50"
+          className="p-1.5 sm:p-3 bg-black text-white hover:bg-gray-800 hover:scale-110 hover:shadow-lg rounded-full disabled:opacity-50 disabled:hover:scale-100 disabled:hover:shadow-none transition-all duration-300"
         >
           <FaArrowUp className="w-2 h-2 sm:w-3 sm:h-3" />
         </button>

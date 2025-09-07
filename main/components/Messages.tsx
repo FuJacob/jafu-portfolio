@@ -18,11 +18,12 @@ export default function Messages({ messages, isLoading, fullHeight = true }: Mes
         {messages.map((message, index) => (
           <div 
             key={index} 
-            className={`${
+            className={`animate-in slide-in-from-bottom duration-500 ${
               message.isUser 
-                ? 'border border-gray-300 rounded-full bg-white text-gray-700 px-4 sm:px-6 py-2 sm:py-3 max-w-fit ml-auto text-sm sm:text-base' 
-                : 'text-gray-800 mr-8 sm:mr-12 text-sm sm:text-base'
+                ? 'border border-gray-300 rounded-full bg-white text-gray-700 px-4 sm:px-6 py-2 sm:py-3 max-w-fit ml-auto text-sm sm:text-base hover:shadow-md hover:scale-[1.02] transition-all duration-300' 
+                : 'text-gray-800 mr-8 sm:mr-12 text-sm sm:text-base animate-in fade-in duration-600'
             }`}
+            style={{ animationDelay: `${index * 100}ms` }}
           >
             {message.isUser ? (
               <p>{message.text}</p>
@@ -32,8 +33,12 @@ export default function Messages({ messages, isLoading, fullHeight = true }: Mes
           </div>
         ))}
         {isLoading && (
-          <div className="text-gray-800 mr-8 sm:mr-12">
-            <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gray-400 rounded-full animate-pulse"></div>
+          <div className="text-gray-800 mr-8 sm:mr-12 animate-in fade-in duration-300">
+            <div className="flex items-center gap-1">
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gray-400 rounded-full animate-bounce"></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
+              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
+            </div>
           </div>
         )}
       </div>

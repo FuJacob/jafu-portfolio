@@ -43,17 +43,17 @@ export default function ChatLayout({
       }}
     >
       <div
-        className={`relative z-10 w-full max-w-2xl ${
+        className={`relative z-10 w-full max-w-2xl transition-all duration-700 ease-in-out ${
           hasStartedConvo ? "h-full flex flex-col" : "space-y-4 sm:space-y-6"
         }`}
       >
         {hasStartedConvo ? (
-          <>
-            <div className="flex-shrink-0">
+          <div className="animate-in fade-in duration-500 h-full flex flex-col">
+            <div className="flex-shrink-0 animate-in slide-in-from-top duration-600">
               <Header />
             </div>
 
-            <div className="flex-1 min-h-0">
+            <div className="flex-1 min-h-0 animate-in fade-in duration-700 delay-200">
               <Messages
                 messages={messages}
                 isLoading={isLoading}
@@ -61,7 +61,7 @@ export default function ChatLayout({
               />
             </div>
 
-            <div className="flex-shrink-0 pt-2 sm:pt-4">
+            <div className="flex-shrink-0 pt-2 sm:pt-4 animate-in slide-in-from-bottom duration-600 delay-300">
               <ChatInput
                 value={inputValue}
                 onChange={onInputChange}
@@ -77,12 +77,16 @@ export default function ChatLayout({
                 }
               />
             </div>
-          </>
+          </div>
         ) : (
-          <>
-            <Header />
-            <FakeMessages />
-            <div className="space-y-2 sm:space-y-3">
+          <div className="animate-in fade-in duration-500 space-y-4 sm:space-y-6">
+            <div className="animate-in slide-in-from-top duration-700">
+              <Header />
+            </div>
+            <div className="animate-in fade-in duration-600 delay-200">
+              <FakeMessages />
+            </div>
+            <div className="space-y-2 sm:space-y-3 animate-in slide-in-from-bottom duration-600 delay-300">
               <InfoBubbles onBubbleClick={onBubbleClick} />
               <ChatInput
                 value={inputValue}
@@ -99,7 +103,7 @@ export default function ChatLayout({
                 }
               />
             </div>
-          </>
+          </div>
         )}
       </div>
     </div>
