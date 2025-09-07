@@ -21,10 +21,10 @@ const Icon = ({
     rel="noopener noreferrer"
     className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-300 rounded-full bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 hover:scale-110 hover:shadow-md transition-all duration-300"
   >
-    <div className="w-3 h-3 sm:w-4 sm:h-4 flex items-center justify-center">
+    <div className="w-4 h-4 sm:w-4 sm:h-4 flex items-center justify-center">
       {children}
     </div>
-    <span className="text-xs sm:text-sm">{label}</span>
+    <span className="hidden sm:inline text-xs sm:text-sm">{label}</span>
   </a>
 );
 
@@ -46,10 +46,10 @@ const Button = ({
       disabled ? "opacity-50 cursor-not-allowed hover:scale-100 hover:shadow-none" : ""
     }`}
   >
-    <div className="w-3 h-3 sm:w-4 sm:h-4 flex items-center justify-center">
+    <div className="w-4 h-4 sm:w-4 sm:h-4 flex items-center justify-center">
       {children}
     </div>
-    <span className="text-xs sm:text-sm">{label}</span>
+    <span className="hidden sm:inline text-xs sm:text-sm">{label}</span>
   </button>
 );
 
@@ -67,7 +67,7 @@ export default function ActionButtons({
   disabled = false,
 }: ActionButtonsProps) {
   return (
-    <div className="flex justify-between gap-1.5">
+    <div className="flex justify-between gap-1 sm:gap-1.5">
       <Icon link="https://www.linkedin.com/in/fujacob/" label="linkedin">
         <FaLinkedinIn />
       </Icon>
@@ -95,7 +95,7 @@ export default function ActionButtons({
           disabled={disabled}
           className="p-1.5 sm:p-3 bg-black text-white hover:bg-gray-800 hover:scale-110 hover:shadow-lg rounded-full disabled:opacity-50 disabled:hover:scale-100 disabled:hover:shadow-none transition-all duration-300"
         >
-          <FaArrowUp className="w-2 h-2 sm:w-3 sm:h-3" />
+          <FaArrowUp className="w-3 h-3 sm:w-3 sm:h-3" />
         </button>
       )}
     </div>

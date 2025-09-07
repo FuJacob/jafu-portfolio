@@ -35,6 +35,14 @@ export default function ChatInput({
           }
           value={value}
           onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) => onChange(e.target.value)}
+          onKeyDown={(e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+            if (e.key === 'Enter' && !e.shiftKey) {
+              e.preventDefault();
+              if (!disabled) {
+                onSubmit();
+              }
+            }
+          }}
           disabled={disabled}
           className="w-full min-h-12 sm:min-h-14 text-base sm:text-lg border-none outline-none bg-transparent resize-none focus:scale-[1.02] transition-transform duration-200"
           rows={1}

@@ -34,11 +34,7 @@ export default function Messages({ messages, isLoading, fullHeight = true }: Mes
         ))}
         {isLoading && (
           <div className="text-gray-800 mr-8 sm:mr-12 animate-in fade-in duration-300">
-            <div className="flex items-center gap-1">
-              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gray-400 rounded-full animate-bounce"></div>
-              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-              <div className="w-2 h-2 sm:w-3 sm:h-3 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-            </div>
+            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gray-400 rounded-full animate-pulse"></div>
           </div>
         )}
       </div>

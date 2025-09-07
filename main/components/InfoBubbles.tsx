@@ -21,15 +21,15 @@ interface InfoBubblesProps {
 
 export default function InfoBubbles({ onBubbleClick }: InfoBubblesProps) {
   const bubbles = [
-    { text: "about me", message: "tell me about yourself", icon: <FaUser /> },
-    { text: "work experience", message: "where have you worked previously", icon: <FaBriefcase /> },
+    { text: "about", message: "tell me about yourself", icon: <FaUser /> },
+    { text: "work", message: "where have you worked previously", icon: <FaBriefcase /> },
     { text: "projects", message: "what kind of projects have you worked on", icon: <FaRocket /> },
     { text: "skills", message: "what are your technical skills", icon: <FaBolt /> },
     { text: "contact", message: "how can i contact you", icon: <FaEnvelope /> },
   ];
 
   return (
-    <div className="flex gap-2 sm:gap-3 overflow-x-auto justify-center px-2 sm:px-0 animate-in slide-in-from-bottom duration-500 delay-300">
+    <div className="flex gap-2 sm:gap-3 overflow-x-auto justify-center px-2 sm:px-0 animate-in slide-in-from-bottom duration-500 delay-300 py-1">
       {bubbles.map((bubble, index) => (
         <div
           key={index}
