@@ -1,0 +1,10 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "has": [{ "type": "host", "value": "cv.jacobfu.com" }],
+      "destination": "/resume_sept_9.pdf",
+      "permanent": true
+    }
+  ]
+}
