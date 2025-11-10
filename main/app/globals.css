@@ -41,7 +41,7 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
-  --font-sans: var(--font-dyna-puff);
+  --font-sans: var(--font-display);
 }
 
 :root {
@@ -119,6 +119,6 @@
   }
   body {
     @apply bg-background text-foreground;
-    font-family: var(--font-dyna-puff);
+    font-family: var(--font-display);
   }
 }

@@ -1,0 +1,180 @@
+import Image from "next/image";
+
+export default function About() {
+  const workHistory = [
+    {
+      icon: "/companies/kaimz.png",
+      company: "Kaimz Inc.",
+      title: "Software Engineering Intern",
+      date: "Sep 2025 – present",
+    },
+    {
+      icon: "/companies/hubspot.png",
+      company: "HubSpot",
+      title: "Software Engineering Intern",
+      date: "May 2025 – Aug 2025",
+    },
+    {
+      icon: "/companies/bridgewell.png",
+      company: "Bridgewell Financial",
+      title: "Software Engineering Intern",
+      date: "Feb 2025 – May 2025",
+    },
+    {
+      icon: "/companies/weehooey.png",
+      company: "Weehooey Inc.",
+      title: "Software Developer Intern",
+      date: "Oct 2023 – Jan 2024",
+    },
+  ];
+
+  const getSeasonFromDate = (dateStr: string) => {
+    if (!dateStr) return "";
+    try {
+      const start = dateStr.split("–")[0].trim();
+      const parts = start.split(/\s+/);
+      const monthName = (parts[0] || "").slice(0, 3).toLowerCase();
+      const year = parts[1] || "";
+      const monthMap: Record<string, number> = {
+        jan: 1,
+        feb: 2,
+        mar: 3,
+        apr: 4,
+        may: 5,
+        jun: 6,
+        jul: 7,
+        aug: 8,
+        sep: 9,
+        oct: 10,
+        nov: 11,
+        dec: 12,
+      };
+      const m = monthMap[monthName] || 0;
+      let season = "";
+      if (m === 12 || m === 1 || m === 2) season = "Winter";
+      else if (m >= 3 && m <= 5) season = "Spring";
+      else if (m >= 6 && m <= 8) season = "Summer";
+      else if (m >= 9 && m <= 11) season = "Fall";
+      return season && year ? `${season} ${year}` : season;
+    } catch {
+      return "";
+    }
+  };
+
+  return (
+    <section id="about" className="space-y-4">
+      <div className="text-sm text-gray-700 leading-relaxed space-y-3">
+        {/* be me (professional / current) */}
+        <div>
+          <p className="font-semibold mb-1">be me:</p>
+          <div className="space-y-0.5">
+            <div className="flex items-start gap-2">
+              <span>&gt;</span>
+              <span>
+                studying cs & finance at{" "}
+                <Image
+                  src="/companies/waterloo.png"
+                  alt="UWaterloo"
+                  width={14}
+                  height={14}
+                  className="inline rounded-full mx-1 object-contain"
+                  style={{ objectFit: "contain" }}
+                />
+                <span className="font-semibold">university of waterloo</span>
+              </span>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span>&gt;</span>
+              <span>
+                incoming software engineering intern at{" "}
+                <Image
+                  src="/companies/hubspot.png"
+                  alt="HubSpot"
+                  width={14}
+                  height={14}
+                  className="inline rounded-full mx-1 object-contain"
+                  style={{ objectFit: "contain" }}
+                />
+                <span className="font-semibold">hubspot</span> this winter 2026
+              </span>
+            </div>
+
+            <div className="flex items-start gap-2">
+              <span>&gt;</span>
+              <span>
+                interested in infrastructure, distributed systems, and building
+                products
+              </span>
+            </div>
+          </div>
+        </div>
+
+        {/* personal stuff - its own section */}
+        <div>
+          <p className="font-semibold mb-1">personal stuff:</p>
+          <div className="space-y-0.5">
+            <p>
+              &gt; i used to want to be a civil engineer, then an optometrist,
+              now i&apos;m here
+            </p>
+            <p>
+              &gt; i love playing volleyball and badminton with my friends even
+              though i suck
+            </p>
+            <p>
+              &gt; my favourite movie is definitely parasite - you should 100%
+              watch it
+            </p>
+            <p>
+              &gt; my favourite anime is naruto but the new boruto stuff sucks
+            </p>
+          </div>
+        </div>
+
+        <p>
+          find me interesting somehow?{" "}
+          <a
+            href="https://calendar.app.google/QCosZGTnWDNeiCuz6"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:text-blue-800 underline"
+          >
+            book a chat with me here
+          </a>
+          .
+        </p>
+
+        <div>
+          <p className="font-semibold mb-1">been there:</p>
+          <div className="space-y-0.5">
+            {workHistory.map((job, index) => (
+              <div key={index} className="flex items-start gap-2">
+                <span className="text-gray-500 mt-0.5">&gt;</span>
+                <span>
+                  was a {job.title.toLowerCase()} at{" "}
+                  <Image
+                    src={job.icon}
+                    alt={job.company}
+                    width={14}
+                    height={14}
+                    className="inline rounded-full mx-1 object-contain"
+                    style={{ objectFit: "contain" }}
+                  />
+                  <span className="font-semibold">
+                    {job.company.toLowerCase()}
+                  </span>
+                  {job.date && (
+                    <span className="text-xs text-gray-400 ml-1">
+                      — {getSeasonFromDate(job.date)}
+                    </span>
+                  )}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}

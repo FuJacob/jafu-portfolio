@@ -9,21 +9,26 @@ interface MessagesProps {
   fullHeight?: boolean;
 }
 
-export default function Messages({ messages, isLoading, fullHeight = true }: MessagesProps) {
+export default function Messages({
+  messages,
+  isLoading,
+  fullHeight = true,
+}: MessagesProps) {
   if (messages.length === 0) return null;
 
   return (
-    <div className={`${fullHeight ? 'h-full' : ''} overflow-y-auto py-2 sm:py-4`}>
-      <div className="space-y-2 sm:space-y-3">
+    <div
+      className={`${fullHeight ? "h-full" : ""} overflow-y-auto py-2 md:py-4`}
+    >
+      <div className="space-y-2 md:space-y-3">
         {messages.map((message, index) => (
-          <div 
-            key={index} 
-            className={`animate-in slide-in-from-bottom duration-500 ${
-              message.isUser 
-                ? 'border border-gray-300 rounded-full bg-white text-gray-700 px-4 sm:px-6 py-2 sm:py-3 max-w-fit ml-auto text-sm sm:text-base hover:shadow-md hover:scale-[1.02] transition-all duration-300' 
-                : 'text-gray-800 mr-8 sm:mr-12 text-sm sm:text-base animate-in fade-in duration-600'
+          <div
+            key={index}
+            className={`${
+              message.isUser
+                ? "border border-gray-300 bg-white text-gray-700 px-3 md:px-4 py-1.5 md:py-2 max-w-fit ml-auto text-sm md:text-base"
+                : "text-gray-800 mr-8 md:mr-12 text-sm md:text-base"
             }`}
-            style={{ animationDelay: `${index * 100}ms` }}
           >
             {message.isUser ? (
               <p>{message.text}</p>
@@ -33,8 +38,8 @@ export default function Messages({ messages, isLoading, fullHeight = true }: Mes
           </div>
         ))}
         {isLoading && (
-          <div className="text-gray-800 mr-8 sm:mr-12 animate-in fade-in duration-300">
-            <div className="w-3 h-3 sm:w-4 sm:h-4 bg-gray-400 rounded-full animate-pulse"></div>
+          <div className="text-gray-800 mr-8 md:mr-12">
+            <div className="w-3 h-3 md:w-4 md:h-4 bg-gray-400 rounded-full animate-pulse"></div>
           </div>
         )}
       </div>

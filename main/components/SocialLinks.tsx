@@ -1,10 +1,4 @@
-import {
-  FaLinkedinIn,
-  FaGithub,
-  FaEnvelope,
-  FaTrash,
-  FaArrowUp,
-} from "react-icons/fa";
+import { FaLinkedinIn, FaGithub, FaEnvelope } from "react-icons/fa";
 
 const Icon = ({
   link,
@@ -19,85 +13,28 @@ const Icon = ({
     href={link}
     target="_blank"
     rel="noopener noreferrer"
-    className="flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-300 rounded-full bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 hover:scale-110 hover:shadow-md transition-all duration-300"
+    aria-label={label}
+    className="flex items-center justify-center w-8 h-8 border border-gray-300 bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 hover:shadow-md transition-all duration-300"
   >
-    <div className="w-4 h-4 sm:w-4 sm:h-4 flex items-center justify-center">
-      {children}
-    </div>
-    <span className="hidden sm:inline text-xs sm:text-sm">{label}</span>
+    <div className="w-4 h-4 flex items-center justify-center">{children}</div>
   </a>
 );
 
-const Button = ({
-  onClick,
-  children,
-  label,
-  disabled = false,
-}: {
-  onClick: () => void;
-  children: React.ReactNode;
-  label: string;
-  disabled?: boolean;
-}) => (
-  <button
-    onClick={onClick}
-    disabled={disabled}
-    className={`flex items-center gap-1.5 sm:gap-2 px-2 sm:px-3 py-1 sm:py-1.5 border border-gray-300 rounded-full bg-white text-gray-700 hover:text-gray-900 hover:border-gray-400 hover:scale-110 hover:shadow-md transition-all duration-300 ${
-      disabled ? "opacity-50 cursor-not-allowed hover:scale-100 hover:shadow-none" : ""
-    }`}
-  >
-    <div className="w-4 h-4 sm:w-4 sm:h-4 flex items-center justify-center">
-      {children}
-    </div>
-    <span className="hidden sm:inline text-xs sm:text-sm">{label}</span>
-  </button>
-);
-
-interface ActionButtonsProps {
-  onClearChat?: () => void;
-  canClearChat?: boolean;
-  onSubmit?: () => void;
-  disabled?: boolean;
-}
-
-export default function ActionButtons({
-  onClearChat,
-  canClearChat = false,
-  onSubmit,
-  disabled = false,
-}: ActionButtonsProps) {
+export default function SocialLinks() {
   return (
-    <div className="flex justify-between gap-1 sm:gap-1.5">
+    <div className="flex flex-wrap gap-1.5">
       <Icon link="https://www.linkedin.com/in/fujacob/" label="linkedin">
         <FaLinkedinIn />
       </Icon>
       <Icon link="https://github.com/fujacob/" label="github">
         <FaGithub />
       </Icon>
-      <Icon link="https://x.com/fujacobb/" label="X/twitter">
-        <div className="text-xs font-black">𝕏</div>
+      <Icon link="https://x.com/fujacobb/" label="X">
+        <div className="text-sm font-black">𝕏</div>
       </Icon>
       <Icon link="mailto:jjacobfu@gmail.com" label="email">
         <FaEnvelope />
       </Icon>
-      {onClearChat && (
-        <Button
-          onClick={onClearChat}
-          label="clear chat"
-          disabled={!canClearChat}
-        >
-          <FaTrash />
-        </Button>
-      )}
-      {onSubmit && (
-        <button
-          onClick={onSubmit}
-          disabled={disabled}
-          className="p-1.5 sm:p-3 bg-black text-white hover:bg-gray-800 hover:scale-110 hover:shadow-lg rounded-full disabled:opacity-50 disabled:hover:scale-100 disabled:hover:shadow-none transition-all duration-300"
-        >
-          <FaArrowUp className="w-3 h-3 sm:w-3 sm:h-3" />
-        </button>
-      )}
     </div>
   );
 }

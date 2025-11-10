@@ -1,16 +1,18 @@
 import type { Metadata } from "next";
-import { DynaPuff } from "next/font/google";
+import { Shantell_Sans } from "next/font/google";
 import "./globals.css";
 import { Analytics } from "@vercel/analytics/next";
 
-const dynaPuff = DynaPuff({
-  variable: "--font-dyna-puff",
+const displayFont = Shantell_Sans({
+  variable: "--font-display",
   subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
-  title: "Jacob Fu",
-  description: "Hmm, what's this?",
+  title: "Jacob Fu - Developer & Builder",
+  description:
+    "cs & finance student at uwaterloo. interested in infrastructure, distributed systems, and building products that ship fast.",
 };
 
 export default function RootLayout({
@@ -20,7 +22,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${dynaPuff.variable} antialiased`}>
+      <body className={`${displayFont.variable} antialiased`}>
         {children}
         <Analytics />
       </body>
