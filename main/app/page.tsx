@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="min-h-screen w-full bg-white relative text-gray-800 flex flex-col items-center justify-center p-2 md:p-8">
+      <div className="min-h-screen w-full bg-white relative text-gray-800 flex flex-col items-center justify-start md:justify-center p-2 md:p-8">
         {/* Background Pattern */}
         <div
           className="absolute inset-0 z-0 pointer-events-none"

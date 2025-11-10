@@ -140,7 +140,7 @@ export default function About() {
             rel="noopener noreferrer"
             className="text-blue-600 hover:text-blue-800 underline"
           >
-            book a chat with me here
+            book a chat
           </a>
           .
         </p>
