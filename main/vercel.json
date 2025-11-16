@@ -3,7 +3,7 @@
     {
       "source": "/",
       "has": [{ "type": "host", "value": "cv.jacobfu.com" }],
-      "destination": "https://www.jacobfu.com/Jacob_Fu_Resume_Sept_2025.pdf",
+      "destination": "https://cdn.jacobfu.com/jacob-fu-resume.pdf",
       "permanent": true
     }
   ]
