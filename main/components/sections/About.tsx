@@ -148,30 +148,66 @@ export default function About() {
         <div>
           <p className="font-semibold mb-1">been there:</p>
           <div className="space-y-0.5">
-            {workHistory.map((job, index) => (
-              <div key={index} className="flex items-start gap-2">
-                <span className="text-gray-500 mt-0.5">&gt;</span>
-                <span>
-                  was a {job.title.toLowerCase()} at{" "}
-                  <Image
-                    src={job.icon}
-                    alt={job.company}
-                    width={14}
-                    height={14}
-                    className="inline rounded-full mx-1 object-contain"
-                    style={{ objectFit: "contain" }}
-                  />
-                  <span className="font-semibold">
-                    {job.company.toLowerCase()}
-                  </span>
-                  {job.date && (
-                    <span className="text-xs text-gray-400 ml-1">
-                      — {getSeasonFromDate(job.date)}
-                    </span>
-                  )}
-                </span>
-              </div>
-            ))}
+            <div className="flex items-start gap-2">
+              <span className="text-gray-500 mt-0.5">&gt;</span>
+              <span>
+                worked on monitoring agent at{" "}
+                <Image
+                  src="/companies/kaimz.png"
+                  alt="Kaimz Inc."
+                  width={14}
+                  height={14}
+                  className="inline rounded-full mx-1 object-contain"
+                  style={{ objectFit: "contain" }}
+                />
+                <span className="font-semibold">kaimz inc</span>
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-gray-500 mt-0.5">&gt;</span>
+              <span>
+                shipped features for sales workspace at{" "}
+                <Image
+                  src="/companies/hubspot.png"
+                  alt="HubSpot"
+                  width={14}
+                  height={14}
+                  className="inline rounded-full mx-1 object-contain"
+                  style={{ objectFit: "contain" }}
+                />
+                <span className="font-semibold">hubspot</span>
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-gray-500 mt-0.5">&gt;</span>
+              <span>
+                built inhouse client onboarding portal at{" "}
+                <Image
+                  src="/companies/bridgewell.png"
+                  alt="Bridgewell Financial"
+                  width={14}
+                  height={14}
+                  className="inline rounded-full mx-1 object-contain"
+                  style={{ objectFit: "contain" }}
+                />
+                <span className="font-semibold">bridgewell financial</span>
+              </span>
+            </div>
+            <div className="flex items-start gap-2">
+              <span className="text-gray-500 mt-0.5">&gt;</span>
+              <span>
+                developed client tooling at{" "}
+                <Image
+                  src="/companies/weehooey.png"
+                  alt="Weehooey Inc."
+                  width={14}
+                  height={14}
+                  className="inline rounded-full mx-1 object-contain"
+                  style={{ objectFit: "contain" }}
+                />
+                <span className="font-semibold">weehooey inc</span>
+              </span>
+            </div>
           </div>
         </div>
       </div>
