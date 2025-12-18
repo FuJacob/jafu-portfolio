@@ -29,7 +29,7 @@ export default function MiniChatInput({
           value={value}
           onChange={(e) => onChange(e.target.value)}
           disabled={disabled}
-          className="w-full px-3 py-2 pr-10 text-sm border border-gray-300 bg-white focus:outline-none focus:border-gray-400 transition"
+          className="w-full px-3 py-2 pr-10 text-sm border border-gray-300 bg-white hover:border-black focus:outline-none focus:border-black transition"
         />
         <button
           type="submit"

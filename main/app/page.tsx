@@ -10,7 +10,6 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { useChat } from "@/hooks/useChat";
 import Image from "next/image";
 import { useState } from "react";
-import BackgroundPattern from "@/components/BackgroundPattern";
 
 export default function Home() {
   const { messages, inputValue, isLoading, setInputValue, handleSubmit } =
@@ -26,25 +25,23 @@ export default function Home() {
   return (
     <main>
       <div className="min-h-screen w-full bg-white relative text-gray-800 flex flex-col items-center justify-start md:justify-center p-2 md:p-8">
-        <BackgroundPattern />
+        {/* Noise Texture (Darker Dots) Background */}
 
         {/* Content Box - center stage */}
-        <div className="relative z-10 w-full max-w-xl">
-          <div className="h-[500px] md:h-[520px] flex flex-col overflow-hidden">
+        <div className="relative z-10 w-full max-w-xl flex-1 md:flex-none flex flex-col">
+          <div className="h-full md:h-[520px] flex flex-col overflow-hidden">
             <Tabs
               value={activeTab}
               onValueChange={setActiveTab}
               className="h-full flex flex-col"
             >
               {/* Tab header with jacob fu */}
-              <div className="flex-shrink-0 border-b border-gray-200 px-2 md:px-3 pt-3 md:pt-6">
-                <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-3 md:mb-4 gap-2">
-                  <div className="flex items-center gap-3 md:gap-6">
-                    <div className="flex items-center">
-                      <h1 className="text-lg md:text-2xl font-bold text-gray-900">
-                        jacob fu
-                      </h1>
-                    </div>
+              <div className="flex-shrink-0 px-2 md:px-3 pt-3 md:pt-6">
+                <div className="mb-3 md:mb-4 space-y-2 md:space-y-0 border-b border-gray-200 pb-3 md:pb-4">
+                  <h1 className="text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
+                   hey, it's jacob fu!
+                  </h1>
+                  <div className="flex items-center justify-between gap-2">
                     <TabsList>
                       <TabsTrigger value="about" className="text-xs md:text-sm">
                         about
@@ -59,11 +56,11 @@ export default function Home() {
                         value="chat with me"
                         className="text-xs md:text-sm"
                       >
-                        chat with me
+                        chat
                       </TabsTrigger>
                     </TabsList>
+                    <SocialLinks />
                   </div>
-                  <SocialLinks />
                 </div>
               </div>
 
@@ -109,7 +106,7 @@ export default function Home() {
         </div>
 
         {/* Charlie and Snoopy at bottom of screen */}
-        <div className="fixed bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-full max-w-xl opacity-60 px-2 md:px-8">
+        <div className="fixed bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-40 md:w-52 opacity-60">
           <Image
             src="/charlie-and-snoopy.svg"
             alt="Charlie Brown and Snoopy"
