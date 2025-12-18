@@ -1,66 +1,6 @@
 import Image from "next/image";
 
 export default function About() {
-  const workHistory = [
-    {
-      icon: "/companies/kaimz.png",
-      company: "Kaimz Inc.",
-      title: "Software Engineering Intern",
-      date: "Sep 2025 – present",
-    },
-    {
-      icon: "/companies/hubspot.png",
-      company: "HubSpot",
-      title: "Software Engineering Intern",
-      date: "May 2025 – Aug 2025",
-    },
-    {
-      icon: "/companies/bridgewell.png",
-      company: "Bridgewell Financial",
-      title: "Software Engineering Intern",
-      date: "Feb 2025 – May 2025",
-    },
-    {
-      icon: "/companies/weehooey.png",
-      company: "Weehooey Inc.",
-      title: "Software Developer Intern",
-      date: "Oct 2023 – Jan 2024",
-    },
-  ];
-
-  const getSeasonFromDate = (dateStr: string) => {
-    if (!dateStr) return "";
-    try {
-      const start = dateStr.split("–")[0].trim();
-      const parts = start.split(/\s+/);
-      const monthName = (parts[0] || "").slice(0, 3).toLowerCase();
-      const year = parts[1] || "";
-      const monthMap: Record<string, number> = {
-        jan: 1,
-        feb: 2,
-        mar: 3,
-        apr: 4,
-        may: 5,
-        jun: 6,
-        jul: 7,
-        aug: 8,
-        sep: 9,
-        oct: 10,
-        nov: 11,
-        dec: 12,
-      };
-      const m = monthMap[monthName] || 0;
-      let season = "";
-      if (m === 12 || m === 1 || m === 2) season = "Winter";
-      else if (m >= 3 && m <= 5) season = "Spring";
-      else if (m >= 6 && m <= 8) season = "Summer";
-      else if (m >= 9 && m <= 11) season = "Fall";
-      return season && year ? `${season} ${year}` : season;
-    } catch {
-      return "";
-    }
-  };
-
   return (
     <section id="about" className="space-y-4">
       <div className="text-sm text-gray-700 leading-relaxed space-y-3">

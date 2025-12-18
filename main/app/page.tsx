@@ -39,7 +39,7 @@ export default function Home() {
               <div className="flex-shrink-0 px-2 md:px-3 pt-3 md:pt-6">
                 <div className="mb-3 md:mb-4 space-y-2 md:space-y-0 border-b border-gray-200 pb-3 md:pb-4">
                   <h1 className="text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
-                    hey, it's jacob fu!
+                    hey, it&apos;s jacob fu!
                   </h1>
                   <div className="flex items-center justify-between gap-2">
                     <TabsList>
