@@ -24,7 +24,7 @@ export default function Home() {
 
   return (
     <main>
-      <div className="min-h-screen w-full bg-white relative text-gray-800 flex flex-col items-center justify-start md:justify-center p-2 md:p-8">
+      <div className="min-h-screen w-full bg-white dark:bg-gray-900 relative text-gray-800 dark:text-gray-200 flex flex-col items-center justify-start md:justify-center p-2 md:p-8">
         {/* Noise Texture (Darker Dots) Background */}
 
         {/* Content Box - center stage */}
@@ -37,8 +37,8 @@ export default function Home() {
             >
               {/* Tab header with jacob fu */}
               <div className="flex-shrink-0 px-2 md:px-3 pt-3 md:pt-6">
-                <div className="mb-3 md:mb-4 space-y-2 md:space-y-0 border-b border-gray-200 pb-3 md:pb-4">
-                  <h1 className="text-lg md:text-2xl font-bold text-gray-900 mb-2 md:mb-3">
+                <div className="mb-3 md:mb-4 space-y-2 md:space-y-0 border-b border-gray-200 dark:border-gray-700 pb-3 md:pb-4">
+                  <h1 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3">
                     hey, it&apos;s jacob fu!
                   </h1>
                   <div className="flex items-center justify-between gap-2">
@@ -106,7 +106,7 @@ export default function Home() {
         </div>
 
         {/* Charlie and Snoopy at bottom of screen */}
-        <div className="fixed bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-40 md:w-52 opacity-60">
+        <div className="fixed bottom-1 md:bottom-2 left-1/2 -translate-x-1/2 w-40 md:w-52 opacity-60 dark:hidden">
           <Image
             src="/charlie-and-snoopy.svg"
             alt="Charlie Brown and Snoopy"

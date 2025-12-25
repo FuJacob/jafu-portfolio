@@ -3,7 +3,7 @@ import Image from "next/image";
 export default function About() {
   return (
     <section id="about" className="space-y-4">
-      <div className="text-sm text-gray-700 leading-relaxed space-y-3">
+      <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-3">
         {/* be me (professional / current) */}
         <div>
           <p className="font-semibold mb-1">be me:</p>
@@ -78,8 +78,7 @@ export default function About() {
             href="https://calendar.app.google/QCosZGTnWDNeiCuz6"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-blue-600 hover:text-blue-800 underline"
-          >
+            className="text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 underline">
             book a chat
           </a>
           .
