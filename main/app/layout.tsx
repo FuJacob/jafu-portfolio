@@ -11,7 +11,7 @@ const displayFont = Shantell_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Jacob Fu - Developer & Builder",
+  title: "Jacob Fu",
   description:
     "cs & finance student at uwaterloo. interested in infrastructure, distributed systems, and building products that ship fast.",
 };

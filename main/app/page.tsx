@@ -38,19 +38,24 @@ export default function Home() {
               {/* Tab header with jacob fu */}
               <div className="flex-shrink-0 px-2 md:px-3 pt-3 md:pt-6">
                 <div className="mb-3 md:mb-4 space-y-2 md:space-y-0 border-b border-gray-200 dark:border-gray-700 pb-3 md:pb-4">
-                  <h1 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white mb-2 md:mb-3">
-                    hey, it&apos;s jacob fu!
-                  </h1>
+                  <div className="flex justify-between mb-2 md:mb-3 items-center">
+                    <h1 className="text-lg md:text-2xl font-bold text-gray-900 dark:text-white">
+                      jacob fu{" "}
+                    </h1>
+                    <span className="dark:text-gray-400 text-gray-500 md:font-light text-sm md:text-lg italic">
+                      figuring things out day by day
+                    </span>
+                  </div>
                   <div className="flex items-center justify-between gap-2">
                     <TabsList>
                       <TabsTrigger value="about" className="text-xs md:text-sm">
-                        about
+                        me
                       </TabsTrigger>
                       <TabsTrigger
                         value="projects"
                         className="text-xs md:text-sm"
                       >
-                        projects
+                        stuff
                       </TabsTrigger>
                       <TabsTrigger
                         value="chat with me"
@@ -100,7 +105,7 @@ export default function Home() {
               value={inputValue}
               onChange={setInputValue}
               onSubmit={handleChatSubmit}
-              disabled={isLoading}
+              isLoading={isLoading}
             />
           </div>
         </div>

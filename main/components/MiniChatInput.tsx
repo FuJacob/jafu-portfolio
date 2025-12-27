@@ -1,42 +1,55 @@
-import { FaPaperPlane } from "react-icons/fa";
+import { FaArrowUp } from "react-icons/fa";
 
 interface MiniChatInputProps {
   value: string;
   onChange: (value: string) => void;
   onSubmit: () => void;
-  disabled?: boolean;
+  isLoading?: boolean;
 }
 
 export default function MiniChatInput({
   value,
   onChange,
   onSubmit,
-  disabled,
+  isLoading,
 }: MiniChatInputProps) {
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    if (!disabled) {
-      onSubmit();
+    onSubmit();
+  };
+
+  const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+    if (e.key === "Enter" && !e.shiftKey) {
+      e.preventDefault();
+      if (value.trim()) {
+        onSubmit();
+      }
     }
   };
 
   return (
     <form onSubmit={handleSubmit} className="w-full mt-1">
       <div className="relative">
-        <input
-          type="text"
-          placeholder={disabled ? "thinking..." : "ask me anything..."}
+        <textarea
+          placeholder={isLoading ? "thinking..." : "ask me anything..."}
           value={value}
           onChange={(e) => onChange(e.target.value)}
-          disabled={disabled}
-          className="w-full px-3 py-2 pr-10 text-sm border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 hover:border-black dark:hover:border-gray-400 focus:outline-none focus:border-black dark:focus:border-gray-400 transition"
+          onKeyDown={handleKeyDown}
+          rows={1}
+          className="w-full px-3 py-2 pr-10 text-sm border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 hover:border-black dark:hover:border-gray-400 focus:outline-none focus:border-black dark:focus:border-gray-400 transition resize-none overflow-hidden min-h-[40px] max-h-[200px]"
+          style={{ height: 'auto' }}
+          onInput={(e) => {
+            const target = e.target as HTMLTextAreaElement;
+            target.style.height = 'auto';
+            target.style.height = Math.min(target.scrollHeight, 200) + 'px';
+          }}
         />
         <button
           type="submit"
-          disabled={disabled || !value.trim()}
-          className="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 dark:text-gray-500 hover:text-gray-700 dark:hover:text-gray-300 disabled:opacity-30 disabled:cursor-not-allowed transition"
+          disabled={!value.trim()}
+          className="absolute right-2 top-2 flex items-center justify-center w-6 h-6 rounded-full bg-gray-800 dark:bg-gray-200 text-white dark:text-gray-900 hover:bg-black dark:hover:bg-white disabled:opacity-30 disabled:cursor-not-allowed transition"
         >
-          <FaPaperPlane className="w-4 h-4" />
+          <FaArrowUp className="w-3 h-3" />
         </button>
       </div>
     </form>
