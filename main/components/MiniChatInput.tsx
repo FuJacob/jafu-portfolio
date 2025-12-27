@@ -37,11 +37,11 @@ export default function MiniChatInput({
           onKeyDown={handleKeyDown}
           rows={1}
           className="w-full px-3 py-2 pr-10 text-sm border border-gray-300 dark:border-gray-700 bg-white dark:bg-gray-800 text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 hover:border-black dark:hover:border-gray-400 focus:outline-none focus:border-black dark:focus:border-gray-400 transition resize-none overflow-hidden min-h-[40px] max-h-[200px]"
-          style={{ height: 'auto' }}
+          style={{ height: "auto" }}
           onInput={(e) => {
             const target = e.target as HTMLTextAreaElement;
-            target.style.height = 'auto';
-            target.style.height = Math.min(target.scrollHeight, 200) + 'px';
+            target.style.height = "auto";
+            target.style.height = Math.min(target.scrollHeight, 200) + "px";
           }}
         />
         <button
