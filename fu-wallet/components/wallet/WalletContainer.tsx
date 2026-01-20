@@ -12,8 +12,8 @@ export function WalletContainer() {
 
   return (
     <div className="min-h-screen bg-background flex items-center justify-center py-8">
-      {/* Auto height container - fits content */}
-      <div className="w-full max-w-sm px-4">
+      {/* Fixed height container to prevent layout shift */}
+      <div className="w-full max-w-sm px-4 min-h-[600px]">
         {/* Header - fixed at top with all about info */}
         <WalletHeader
           name={aboutCard.name}

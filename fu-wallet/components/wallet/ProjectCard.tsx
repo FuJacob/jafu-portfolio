@@ -1,10 +1,23 @@
 "use client";
 
 import { ProjectCard as ProjectCardType } from "@/lib/types";
-import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { ExternalLink, Github } from "lucide-react";
 import { useTheme } from "next-themes";
+import { MediaDisplay } from "./MediaDisplay";
+
+function DevpostIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      viewBox="0 0 24 24"
+      className={className}
+      fill="currentColor"
+      aria-hidden="true"
+    >
+      <path d="M6.002 1.61L0 12.004 6.002 22.39h11.996L24 12.004 17.998 1.61zm1.593 4.084h3.947c3.605 0 6.276 1.695 6.276 6.31 0 4.436-3.21 6.302-6.456 6.302H7.595zm2.517 2.449v7.714h1.241c2.646 0 3.862-1.55 3.862-3.861.009-2.569-1.096-3.853-3.767-3.853z" />
+    </svg>
+  );
+}
 
 interface ProjectCardProps {
   card: ProjectCardType;
@@ -27,7 +40,7 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
     >
       {/* Perforation line on right side */}
       <div className="absolute right-4 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />
-      
+
       <div className="p-3 pr-8">
         {/* Same layout as other cards: Logo, Title, Top-right info */}
         <div className="flex items-center justify-between gap-2">
@@ -43,14 +56,15 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
                 />
               </div>
             )}
-            <h3 className={`text-sm font-semibold ${textColor}`}>{card.title}</h3>
+            <h3 className={`text-sm font-semibold ${textColor}`}>
+              {card.title}
+            </h3>
           </div>
-          {/* Show "Winner" if there's an award */}
-          {card.award && (
-            <span className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}>
-              🏆 Winner
-            </span>
-          )}
+          <span
+            className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
+          >
+            {card.tagline}
+          </span>
         </div>
       </div>
     </div>
@@ -58,41 +72,21 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
 }
 
 export function ProjectCardDetails({ card }: { card: ProjectCardType }) {
+  const paragraphs = card.description.split("\n\n");
+
   return (
-    <div className="p-3 space-y-2">
-      {/* Description */}
-      <p className="text-xs text-muted-foreground">{card.description}</p>
-
-      {/* Award if present */}
-      {card.award && (
-        <Badge
-          variant="default"
-          className="text-[10px] bg-yellow-500/20 text-yellow-700 dark:text-yellow-400 border-yellow-500/30"
-        >
-          {card.award}
-        </Badge>
-      )}
-
-      {/* Bullets */}
-      {card.bullets.length > 0 && (
-        <ul className="space-y-0.5">
-          {card.bullets.map((bullet, i) => (
-            <li key={i} className="text-xs text-muted-foreground flex gap-1.5">
-              <span className="text-muted-foreground/50">&gt;</span>
-              {bullet}
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {/* Technologies */}
-      <div className="flex flex-wrap gap-1.5">
-        {card.technologies.map((tech) => (
-          <Badge key={tech} variant="outline" className="text-[10px]">
-            {tech}
-          </Badge>
+    <div className="px-1 pt-3 pb-3 space-y-2">
+      {/* Description paragraphs */}
+      <div className="space-y-2">
+        {paragraphs.map((paragraph, i) => (
+          <p key={i} className="text-xs text-muted-foreground">
+            {paragraph}
+          </p>
         ))}
       </div>
+
+      {/* Media */}
+      {card.media && <MediaDisplay media={card.media} />}
 
       {/* Links */}
       <div className="flex gap-3 pt-1">
@@ -106,6 +100,18 @@ export function ProjectCardDetails({ card }: { card: ProjectCardType }) {
           >
             <Github className="h-3 w-3" />
             GitHub
+          </a>
+        )}
+        {card.devpostUrl && (
+          <a
+            href={card.devpostUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center gap-1 text-xs text-blue-600 dark:text-blue-400 hover:underline"
+          >
+            <DevpostIcon className="h-3 w-3" />
+            Devpost
           </a>
         )}
         {card.liveUrl && (

@@ -2,8 +2,8 @@ import Image from "next/image";
 
 export default function About() {
   return (
-    <section id="about" className="space-y-4">
-      <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-3">
+    <section id="about" className="space-y-2">
+      <div className="text-sm text-gray-700 dark:text-gray-300 leading-relaxed space-y-2">
         {/* be me (professional / current) */}
         <div>
           <p className="font-semibold mb-1">be me:</p>

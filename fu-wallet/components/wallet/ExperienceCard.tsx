@@ -4,6 +4,7 @@ import { ExperienceCard as ExperienceCardType } from "@/lib/types";
 import { Badge } from "@/components/ui/badge";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { MediaDisplay } from "./MediaDisplay";
 
 interface ExperienceCardProps {
   card: ExperienceCardType;
@@ -30,7 +31,7 @@ export function ExperienceCard({
     >
       {/* Perforation line on right side */}
       <div className="absolute right-4 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />
-      
+
       <div className="p-3 pr-8">
         {/* Credit card layout: Logo small, Company name, Period */}
         <div className="flex items-center justify-between gap-2">
@@ -44,9 +45,13 @@ export function ExperienceCard({
                 className="object-contain"
               />
             </div>
-            <h3 className={`text-sm font-semibold ${textColor}`}>{card.company}</h3>
+            <h3 className={`text-sm font-semibold ${textColor}`}>
+              {card.company}
+            </h3>
           </div>
-          <span className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}>
+          <span
+            className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
+          >
             {card.period}
           </span>
         </div>
@@ -56,13 +61,24 @@ export function ExperienceCard({
 }
 
 export function ExperienceCardDetails({ card }: { card: ExperienceCardType }) {
+  const paragraphs = card.description.split("\n\n");
+
   return (
-    <div className="p-3 space-y-2">
+    <div className="px-1 pt-3 pb-3 space-y-2">
       {/* Role */}
       <p className="text-xs font-medium text-foreground">{card.role}</p>
-      
-      {/* Description */}
-      <p className="text-xs text-muted-foreground">{card.description}</p>
+
+      {/* Description paragraphs */}
+      <div className="space-y-2">
+        {paragraphs.map((paragraph, i) => (
+          <p key={i} className="text-xs text-muted-foreground">
+            {paragraph}
+          </p>
+        ))}
+      </div>
+
+      {/* Media */}
+      {card.media && <MediaDisplay media={card.media} />}
 
       {/* Details */}
       {card.bullets.length > 0 && (

@@ -73,14 +73,14 @@ export default function Home() {
               <div className="flex-1 overflow-y-auto">
                 <TabsContent
                   value="about"
-                  className="mt-0 px-2 md:px-3 py-1 md:py-2 space-y-4 md:space-y-6"
+                  className="mt-0 px-2 md:px-3 py-1 md:py-2 space-y-2 md:space-y-3"
                 >
                   <About />
                 </TabsContent>
 
                 <TabsContent
                   value="projects"
-                  className="mt-0 px-2 md:px-3 py-1 md:py-2 space-y-4 md:space-y-6"
+                  className="mt-0 px-2 md:px-3 py-1 md:py-2 space-y-2 md:space-y-3"
                 >
                   <Projects />
                 </TabsContent>

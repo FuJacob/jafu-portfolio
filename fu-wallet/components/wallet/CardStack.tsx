@@ -5,6 +5,7 @@ import { WalletCard as WalletCardType, CardSection } from "@/lib/types";
 import { AboutCard, AboutCardDetails } from "./AboutCard";
 import { ExperienceCard, ExperienceCardDetails } from "./ExperienceCard";
 import { ProjectCard, ProjectCardDetails } from "./ProjectCard";
+import { ChatCard, ChatCardDetails } from "./ChatCard";
 
 const STACK_OFFSET = 36; // pixels visible per stacked card header
 
@@ -71,9 +72,9 @@ export function CardStack({
           {isThisSectionExpanded && expandedIndex !== -1 && (
             <motion.div
               key="details"
-              initial={{ opacity: 0, y: 70 }}
-              animate={{ opacity: 1, y: 78 }}
-              exit={{ opacity: 0, y: 70 }}
+              initial={{ opacity: 0, y: 48 }}
+              animate={{ opacity: 1, y: 48 }}
+              exit={{ opacity: 0, y: 48 }}
               transition={{
                 type: "spring",
                 stiffness: 400,
@@ -109,6 +110,10 @@ function renderCard(
       return (
         <ProjectCard card={card} isExpanded={isExpanded} onClick={onClick} />
       );
+    case "chat":
+      return (
+        <ChatCard card={card} isExpanded={isExpanded} onClick={onClick} />
+      );
   }
 }
 
@@ -120,5 +125,7 @@ function renderCardDetails(card: WalletCardType) {
       return <ExperienceCardDetails card={card} />;
     case "project":
       return <ProjectCardDetails card={card} />;
+    case "chat":
+      return <ChatCardDetails card={card} />;
   }
 }

@@ -84,8 +84,8 @@ const PROJECTS: Project[] = [
 
 export default function Projects() {
   return (
-    <section id="projects" className="space-y-4">
-      <div className="space-y-4">
+    <section id="projects" className="space-y-2">
+      <div className="space-y-3">
         {PROJECTS.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
