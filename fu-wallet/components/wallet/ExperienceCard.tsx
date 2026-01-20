@@ -78,7 +78,7 @@ export function ExperienceCardDetails({ card }: { card: ExperienceCardType }) {
       </div>
 
       {/* Media */}
-      {card.media && <MediaDisplay media={card.media} />}
+      {card.media && <MediaDisplay media={card.media} colors={card.colors} />}
 
       {/* Details */}
       {card.bullets.length > 0 && (

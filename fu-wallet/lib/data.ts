@@ -12,7 +12,7 @@ export const aboutCard: AboutCard = {
   section: "about",
   colors: { light: "#dbeafe", dark: "#1e40af" },
   name: "Jacob Fu",
-  avatar: "/headshot.jpg",
+  avatar: "/inner-content/me.JPG",
   education: {
     school: "University of Waterloo",
     program: "Open to Internship Opportunities",
@@ -32,6 +32,7 @@ export const aboutCard: AboutCard = {
     twitter: "https://x.com/fujacobb/",
     email: "jjacobfu@gmail.com",
   },
+  media: { type: "image", src: "/inner-content/me.png", caption: "Me in my natural habitat" },
 };
 
 export const experiences: ExperienceCard[] = [
@@ -154,7 +155,7 @@ export const projects: ProjectCard[] = [
     section: "projects",
     title: "UW Shuffle",
     tagline: "Course Scheduler",
-    image: "/projects/uwshuffle.png",
+    image: "/projects/uw-shuffle.png",
     description: "A course scheduling tool for University of Waterloo students. Helps students find optimal class schedules by shuffling through all possible combinations.\n\nBuilt with Next.js and deployed at uwshuffle.com. Used by hundreds of students each term.",
     technologies: [],
     bullets: [],

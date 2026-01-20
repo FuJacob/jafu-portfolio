@@ -86,7 +86,7 @@ export function ProjectCardDetails({ card }: { card: ProjectCardType }) {
       </div>
 
       {/* Media */}
-      {card.media && <MediaDisplay media={card.media} />}
+      {card.media && <MediaDisplay media={card.media} colors={card.colors} />}
 
       {/* Links */}
       <div className="flex gap-3 pt-1">

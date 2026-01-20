@@ -41,6 +41,7 @@ export interface AboutCard extends BaseCard {
     twitter: string;
     email: string;
   };
+  media?: CardMedia;
 }
 
 export interface ExperienceCard extends BaseCard {

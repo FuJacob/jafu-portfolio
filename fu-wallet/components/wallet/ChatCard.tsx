@@ -2,7 +2,7 @@
 
 import { ChatCard as ChatCardType } from "@/lib/types";
 import { useTheme } from "next-themes";
-import { MessageCircle, Send, Loader2 } from "lucide-react";
+import { MessageCircle, Send, RotateCcw } from "lucide-react";
 import { useChat } from "@/hooks/useChat";
 import { useRef, useEffect } from "react";
 
@@ -54,107 +54,124 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
     messages,
     inputValue,
     isLoading,
+    streamingText,
     setInputValue,
     handleSubmit,
     handleBubbleClick,
+    handleClearChat,
   } = useChat();
   const messagesEndRef = useRef<HTMLDivElement>(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
+  }, [messages, streamingText]);
 
   const suggestedQuestions = [
-    "Tell me about yourself",
-    "What projects have you worked on?",
-    "What are your technical skills?",
+    "Tech stack?",
+    "Experience?",
+    "Contact info?",
   ];
 
   return (
-    <div className="px-1 pt-3 pb-3 flex flex-col" style={{ height: "350px" }}>
+    <div className="px-1 pt-3 pb-3 flex flex-col h-[400px]">
+      {/* Header with clear button */}
+      <div className="flex justify-end mb-2">
+        <button
+          onClick={(e) => {
+            e.stopPropagation();
+            handleClearChat();
+          }}
+          className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors"
+        >
+          <RotateCcw className="h-3 w-3" />
+          Reset Chat
+        </button>
+      </div>
+
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto space-y-2 mb-3 pr-1">
-        {messages.length === 0 ? (
-          <div className="space-y-2">
-            <p className="text-xs text-muted-foreground">
-              Ask me anything about my experience, projects, or background.
-            </p>
-            <div className="flex flex-wrap gap-1.5">
-              {suggestedQuestions.map((q) => (
-                <button
-                  key={q}
-                  onClick={(e) => {
-                    e.stopPropagation();
-                    handleBubbleClick(q);
-                  }}
-                  className="text-[10px] px-2 py-1 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors"
-                >
-                  {q}
-                </button>
-              ))}
-            </div>
-          </div>
-        ) : (
-          messages.map((msg, i) => (
-            <div
-              key={i}
-              className={`text-xs ${
+      <div className="flex-1 overflow-y-auto space-y-3 mb-3 pr-1">
+        {messages.map((msg, i) => (
+          <div
+            key={i}
+            className={`text-xs flex ${msg.isUser ? "justify-end" : "justify-start"}`}
+          >
+            <span
+              className={`inline-block px-3 py-2 rounded-lg max-w-[85%] ${
                 msg.isUser
-                  ? "text-right"
-                  : "text-left"
+                  ? "bg-primary text-primary-foreground"
+                  : "bg-secondary text-secondary-foreground"
               }`}
+              style={{ whiteSpace: "pre-wrap" }}
             >
-              <span
-                className={`inline-block px-2.5 py-1.5 rounded-lg max-w-[85%] ${
-                  msg.isUser
-                    ? "bg-primary text-primary-foreground"
-                    : "bg-secondary text-secondary-foreground"
-                }`}
-                dangerouslySetInnerHTML={
-                  msg.isUser ? undefined : { __html: msg.text }
-                }
-              >
-                {msg.isUser ? msg.text : undefined}
-              </span>
-            </div>
-          ))
-        )}
-        {isLoading && (
-          <div className="text-left">
-            <span className="inline-block px-2.5 py-1.5 rounded-lg bg-secondary text-secondary-foreground">
-              <Loader2 className="h-3 w-3 animate-spin" />
+              {msg.isUser ? (
+                msg.text
+              ) : (
+                <span dangerouslySetInnerHTML={{ __html: msg.text }} />
+              )}
+            </span>
+          </div>
+        ))}
+        {/* Streaming message */}
+        {streamingText && (
+          <div className="text-xs flex justify-start">
+            <span
+              className="inline-block px-3 py-2 rounded-lg max-w-[85%] bg-secondary text-secondary-foreground"
+              style={{ whiteSpace: "pre-wrap" }}
+            >
+              <span dangerouslySetInnerHTML={{ __html: streamingText }} />
+              <span className="inline-block w-1.5 h-3 bg-current opacity-50 animate-pulse ml-0.5" />
             </span>
           </div>
         )}
         <div ref={messagesEndRef} />
       </div>
 
-      {/* Input area - fixed at bottom */}
-      <form
-        onSubmit={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          handleSubmit();
-        }}
-        onClick={(e) => e.stopPropagation()}
-        className="flex gap-2"
-      >
-        <input
-          type="text"
-          value={inputValue}
-          onChange={(e) => setInputValue(e.target.value)}
-          placeholder="Type a message..."
-          className="flex-1 text-xs px-3 py-2 rounded-lg bg-secondary border-0 focus:outline-none focus:ring-1 focus:ring-ring"
-          disabled={isLoading}
-        />
-        <button
-          type="submit"
-          disabled={isLoading || !inputValue.trim()}
-          className="px-3 py-2 rounded-lg bg-primary text-primary-foreground disabled:opacity-50 transition-opacity"
+      {/* Suggested Questions & Input */}
+      <div className="space-y-2">
+        {/* Suggested Pills */}
+        <div className="flex flex-wrap gap-1.5 justify-end">
+          {suggestedQuestions.map((q) => (
+            <button
+              key={q}
+              onClick={(e) => {
+                e.stopPropagation();
+                handleBubbleClick(q);
+              }}
+              className="text-[10px] px-2 py-1 rounded bg-secondary/80 text-secondary-foreground hover:bg-secondary transition-colors border border-border/50"
+            >
+              {q}
+            </button>
+          ))}
+        </div>
+
+        {/* Input Form */}
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+            e.stopPropagation();
+            handleSubmit();
+          }}
+          onClick={(e) => e.stopPropagation()}
+          className="flex gap-2"
         >
-          <Send className="h-3 w-3" />
-        </button>
-      </form>
+          <input
+            ref={inputRef}
+            type="text"
+            value={inputValue}
+            onChange={(e) => setInputValue(e.target.value)}
+            placeholder={isLoading ? "AI is typing..." : "Type a message..."}
+            className="flex-1 text-xs px-3 py-2 rounded-md bg-secondary border-0 ring-1 ring-border/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+          />
+          <button
+            type="submit"
+            disabled={!inputValue.trim()}
+            className="px-3 py-2 rounded-md bg-primary text-primary-foreground disabled:opacity-40 transition-all hover:opacity-90"
+          >
+            <Send className="h-3.5 w-3.5" />
+          </button>
+        </form>
+      </div>
     </div>
   );
 }

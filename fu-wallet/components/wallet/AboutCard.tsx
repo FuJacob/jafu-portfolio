@@ -54,6 +54,10 @@ export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
   );
 }
 
+import { MediaDisplay } from "./MediaDisplay";
+
+// ... existing AboutCard component ...
+
 export function AboutCardDetails({ card }: { card: AboutCardType }) {
   return (
     <div className="px-1 pt-3 pb-3 space-y-2">
@@ -70,6 +74,9 @@ export function AboutCardDetails({ card }: { card: AboutCardType }) {
           </p>
         ))}
       </div>
+
+      {/* Media */}
+      {card.media && <MediaDisplay media={card.media} colors={card.colors} forceAspectRatio={false} />}
     </div>
   );
 }

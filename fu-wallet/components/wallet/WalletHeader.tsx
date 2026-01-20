@@ -42,7 +42,7 @@ export function WalletHeader({
       <div className="flex justify-between">
         {/* Left: Name + Education */}
         <div>
-          <h1 className="text-headline text-foreground">{name}</h1>
+          <h1 className="text-headline text-foreground ">{name}</h1>
           <p className="text-body text-muted-foreground">{education}</p>
         </div>
 

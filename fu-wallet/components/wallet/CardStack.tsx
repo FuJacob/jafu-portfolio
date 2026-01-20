@@ -26,7 +26,7 @@ export function CardStack({
   const isThisSectionExpanded = expandedIndex !== -1;
 
   // Calculate total height when stacked
-  const stackedHeight = STACK_OFFSET * (cards.length - 1) + 70;
+  const stackedHeight = STACK_OFFSET * (cards.length - 1) + 52;
 
   return (
     <LayoutGroup>
