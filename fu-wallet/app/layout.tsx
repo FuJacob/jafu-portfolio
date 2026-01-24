@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     template: "%s | Jacob Fu",
   },
   description:
-    "Jacob Fu is a Computer Science student at University of Waterloo building products that people actually use. Previously at HubSpot and Bridgewell. Next stop: Uber.",
+    "Jacob Fu is a Computer Science student at University of Waterloo building products that people actually use. Previously at HubSpot and Bridgewell.",
   keywords: [
     "Jacob Fu",
     "Software Engineer",

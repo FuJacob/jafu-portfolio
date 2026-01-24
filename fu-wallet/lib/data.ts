@@ -22,7 +22,7 @@ export const aboutCard: AboutCard = {
   interests: ["Infrastructure", "Distributed Systems", "Building Products"],
   personalFacts: [
     "I'm Jacob, a CS student at Waterloo. I like building products that people actually use.",
-    "Previously interned at HubSpot and Bridgewell. Next stop is Uber for Summer 2026.",
+    "Previously interned at HubSpot and Bridgewell.",
     "When I'm not shipping code, I'm playing volleyball or badminton. I'm also a huge Naruto fan, but we don't talk about Boruto.",
   ],
   calendarLink: "https://calendar.app.google/QCosZGTnWDNeiCuz6",
