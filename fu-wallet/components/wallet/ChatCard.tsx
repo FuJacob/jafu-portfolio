@@ -23,7 +23,10 @@ export function ChatCard({ card, isExpanded, onClick }: ChatCardProps) {
     <div
       onClick={onClick}
       className="relative overflow-hidden cursor-pointer rounded-lg transition-all duration-150 hover:scale-[1.02]"
-      style={{ backgroundColor: bgColor }}
+      style={{
+        backgroundColor: bgColor,
+        border: `1.5px solid color-mix(in srgb, ${card.colors.dark} 40%, ${card.colors.light})`,
+      }}
     >
       {/* Perforation line on right side */}
       <div className="absolute right-4 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />
@@ -41,7 +44,7 @@ export function ChatCard({ card, isExpanded, onClick }: ChatCardProps) {
           <span
             className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
           >
-            AI
+            Click here
           </span>
         </div>
       </div>
@@ -73,6 +76,10 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
     "Contact info?",
   ];
 
+  // Use card colors for consistent styling
+  const accentLight = card.colors.light;
+  const accentDark = card.colors.dark;
+
   return (
     <div className="px-1 pt-3 pb-3 flex flex-col h-[400px]">
       {/* Header with clear button */}
@@ -85,7 +92,7 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
           className="text-[10px] text-muted-foreground hover:text-foreground flex items-center gap-1 transition-colors"
         >
           <RotateCcw className="h-3 w-3" />
-          Reset Chat
+          Reset
         </button>
       </div>
 
@@ -97,12 +104,13 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
             className={`text-xs flex ${msg.isUser ? "justify-end" : "justify-start"}`}
           >
             <span
-              className={`inline-block px-3 py-2 rounded-lg max-w-[85%] ${
-                msg.isUser
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground"
-              }`}
-              style={{ whiteSpace: "pre-wrap" }}
+              className="inline-block px-3 py-2 rounded-lg max-w-[85%]"
+              style={{
+                whiteSpace: "pre-wrap",
+                backgroundColor: msg.isUser ? accentDark : accentLight,
+                color: msg.isUser ? "white" : "#1f2937",
+                border: `1px solid color-mix(in srgb, ${accentDark} 30%, ${accentLight})`,
+              }}
             >
               {msg.isUser ? (
                 msg.text
@@ -116,8 +124,13 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
         {streamingText && (
           <div className="text-xs flex justify-start">
             <span
-              className="inline-block px-3 py-2 rounded-lg max-w-[85%] bg-secondary text-secondary-foreground"
-              style={{ whiteSpace: "pre-wrap" }}
+              className="inline-block px-3 py-2 rounded-lg max-w-[85%]"
+              style={{
+                whiteSpace: "pre-wrap",
+                backgroundColor: accentLight,
+                color: "#1f2937",
+                border: `1px solid color-mix(in srgb, ${accentDark} 30%, ${accentLight})`,
+              }}
             >
               <span dangerouslySetInnerHTML={{ __html: streamingText }} />
               <span className="inline-block w-1.5 h-3 bg-current opacity-50 animate-pulse ml-0.5" />
@@ -138,7 +151,12 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
                 e.stopPropagation();
                 handleBubbleClick(q);
               }}
-              className="text-[10px] px-2 py-1 rounded bg-secondary/80 text-secondary-foreground hover:bg-secondary transition-colors border border-border/50"
+              className="text-[10px] px-2 py-1 rounded-lg transition-colors"
+              style={{
+                backgroundColor: accentLight,
+                color: accentDark,
+                border: `1px solid color-mix(in srgb, ${accentDark} 30%, ${accentLight})`,
+              }}
             >
               {q}
             </button>
@@ -161,12 +179,20 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
             value={inputValue}
             onChange={(e) => setInputValue(e.target.value)}
             placeholder={isLoading ? "AI is typing..." : "Type a message..."}
-            className="flex-1 text-xs px-3 py-2 rounded-md bg-secondary border-0 ring-1 ring-border/50 focus:outline-none focus:ring-2 focus:ring-primary/20 transition-all"
+            className="flex-1 text-xs px-3 py-2 rounded-lg focus:outline-none transition-all"
+            style={{
+              backgroundColor: "white",
+              border: `1.5px solid color-mix(in srgb, ${accentDark} 30%, ${accentLight})`,
+            }}
           />
           <button
             type="submit"
             disabled={!inputValue.trim()}
-            className="px-3 py-2 rounded-md bg-primary text-primary-foreground disabled:opacity-40 transition-all hover:opacity-90"
+            className="px-3 py-2 rounded-lg disabled:opacity-40 transition-all hover:opacity-90"
+            style={{
+              backgroundColor: accentDark,
+              color: "white",
+            }}
           >
             <Send className="h-3.5 w-3.5" />
           </button>

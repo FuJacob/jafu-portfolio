@@ -11,9 +11,22 @@ export function WalletContainer() {
   const { expandedCardId, expandedSection, toggleCard } = useWalletState();
 
   return (
-    <div className="min-h-screen bg-background flex items-center justify-center py-8">
+    <div className="min-h-screen w-full bg-white relative flex items-center justify-center py-8">
+      {/* Grid Background */}
+      <div
+        className="absolute inset-0 z-0 opacity-50"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #e5e7eb 1px, transparent 1px),
+            linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px",
+          backgroundPosition: "center -30px",
+        }}
+      />
+
       {/* Fixed height container to prevent layout shift */}
-      <div className="w-full max-w-sm px-4 min-h-[600px]">
+      <div className="w-full max-w-sm px-4 min-h-[600px] relative z-10">
         {/* Header - fixed at top with all about info */}
         <WalletHeader
           name={aboutCard.name}
@@ -27,7 +40,8 @@ export function WalletContainer() {
           <div>
             {walletSections.map((section) => {
               const isSectionExpanded = expandedSection === section.id;
-              const isOtherSectionExpanded = expandedCardId && !isSectionExpanded;
+              const isOtherSectionExpanded =
+                expandedCardId && !isSectionExpanded;
 
               return (
                 <motion.div

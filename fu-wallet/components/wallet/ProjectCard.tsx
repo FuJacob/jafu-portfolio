@@ -36,7 +36,10 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
     <div
       onClick={onClick}
       className="relative overflow-hidden cursor-pointer rounded-lg transition-all duration-150 hover:scale-[1.02]"
-      style={{ backgroundColor: bgColor }}
+      style={{
+        backgroundColor: bgColor,
+        border: `1.5px solid color-mix(in srgb, ${card.colors.dark} 40%, ${card.colors.light})`,
+      }}
     >
       {/* Perforation line on right side */}
       <div className="absolute right-4 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />

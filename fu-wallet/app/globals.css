@@ -180,9 +180,31 @@
   
   /* Grid background for development (optional) */
   .swiss-grid {
-    background-image: 
+    background-image:
       linear-gradient(to right, var(--border) 1px, transparent 1px),
       linear-gradient(to bottom, var(--border) 1px, transparent 1px);
     background-size: 1rem 1rem;
+  }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ANIMATED SPOTLIGHT GRID BACKGROUND
+   ═══════════════════════════════════════════════════════════════════════════ */
+@keyframes spotlight {
+  0%, 100% {
+    --x: 50%;
+    --y: 50%;
+  }
+  25% {
+    --x: 30%;
+    --y: 40%;
+  }
+  50% {
+    --x: 70%;
+    --y: 60%;
+  }
+  75% {
+    --x: 40%;
+    --y: 70%;
   }
 }

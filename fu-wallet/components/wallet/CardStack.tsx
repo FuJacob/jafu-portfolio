@@ -27,14 +27,20 @@ export function CardStack({
 
   // Calculate total height when stacked
   const stackedHeight = STACK_OFFSET * (cards.length - 1) + 52;
+  // When expanded, use minimal height for just the card (details will flow naturally)
+  const CARD_HEIGHT = 52;
 
   return (
     <LayoutGroup>
-      <div
+      <motion.div
         className="relative"
-        style={{
-          height: stackedHeight,
-          minHeight: stackedHeight,
+        animate={{
+          height: isThisSectionExpanded ? CARD_HEIGHT : stackedHeight,
+        }}
+        transition={{
+          type: "spring",
+          stiffness: 400,
+          damping: 35,
         }}
       >
         {/* All cards always rendered - position changes based on expanded state */}
@@ -66,28 +72,27 @@ export function CardStack({
             </motion.div>
           );
         })}
+      </motion.div>
 
-        {/* Details panel - positioned after expanded card */}
-        <AnimatePresence>
-          {isThisSectionExpanded && expandedIndex !== -1 && (
-            <motion.div
-              key="details"
-              initial={{ opacity: 0, y: 48 }}
-              animate={{ opacity: 1, y: 48 }}
-              exit={{ opacity: 0, y: 48 }}
-              transition={{
-                type: "spring",
-                stiffness: 400,
-                damping: 35,
-              }}
-              className="absolute left-0 right-0"
-              style={{ zIndex: 99 }}
-            >
-              {renderCardDetails(cards[expandedIndex])}
-            </motion.div>
-          )}
-        </AnimatePresence>
-      </div>
+      {/* Details panel - positioned outside the card container for consistent gap */}
+      <AnimatePresence>
+        {isThisSectionExpanded && expandedIndex !== -1 && (
+          <motion.div
+            key="details"
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{
+              type: "spring",
+              stiffness: 400,
+              damping: 35,
+            }}
+            className="overflow-hidden"
+          >
+            {renderCardDetails(cards[expandedIndex])}
+          </motion.div>
+        )}
+      </AnimatePresence>
     </LayoutGroup>
   );
 }

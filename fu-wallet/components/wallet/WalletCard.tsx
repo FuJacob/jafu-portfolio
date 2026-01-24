@@ -29,6 +29,11 @@ export function WalletCard({
         isExpanded && "border-foreground/30",
         className
       )}
+      style={accentColor ? {
+        borderColor: accentColor,
+        borderWidth: '2px',
+        borderStyle: 'solid',
+      } : undefined}
     >
       {accentColor && (
         <div

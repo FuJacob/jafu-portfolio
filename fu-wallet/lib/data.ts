@@ -15,15 +15,15 @@ export const aboutCard: AboutCard = {
   avatar: "/inner-content/me.JPG",
   education: {
     school: "University of Waterloo",
-    program: "Open to Internship Opportunities",
+    program: "Open to Internships",
     logo: "/companies/waterloo.png",
   },
   status: "UWaterloo Computer Science",
   interests: ["Infrastructure", "Distributed Systems", "Building Products"],
   personalFacts: [
-    "Hey! I'm Jacob, a CS student at the University of Waterloo. When I'm not coding, you'll probably find me on the volleyball or badminton court (fair warning: I'm pretty terrible at both, but that doesn't stop me).",
-    "I went through a few career identity crises before landing on software—first I wanted to be a civil engineer, then an optometrist. Now I just build things on the internet.",
-    "Outside of tech, I'm a huge movie and anime fan. Parasite is my all-time favorite film, and Naruto holds a special place in my heart (we don't talk about Boruto though).",
+    "I'm Jacob, a CS student at Waterloo. I like building products that people actually use.",
+    "Previously interned at HubSpot and Bridgewell. Next stop is Uber for Summer 2026.",
+    "When I'm not shipping code, I'm playing volleyball or badminton. I'm also a huge Naruto fan, but we don't talk about Boruto.",
   ],
   calendarLink: "https://calendar.app.google/QCosZGTnWDNeiCuz6",
   socials: {
@@ -32,7 +32,11 @@ export const aboutCard: AboutCard = {
     twitter: "https://x.com/fujacobb/",
     email: "jjacobfu@gmail.com",
   },
-  media: { type: "image", src: "/inner-content/me.png", caption: "Me in my natural habitat" },
+  media: {
+    type: "image",
+    src: "/inner-content/me.png",
+    caption: "Me in my natural habitat",
+  },
 };
 
 export const experiences: ExperienceCard[] = [
@@ -44,10 +48,15 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/hubspot.png",
     role: "Software Engineering Intern (AI-Editor Platform)",
     period: "Winter 2026",
-    description: "I'm on the AI-Editor Platform team building HubSpot's next-gen Content Editor. My work focuses on real-time layout generation that lets marketers create modules using natural language prompts.\n\nI built a keyboard-driven interaction layer using Redux middleware to handle module state replication. This reduced content assembly time by 30% for beta users.",
+    description:
+      "Building the next-gen Content Editor on the AI Platform team. We're generating complex layouts in real-time from simple text prompts.\n\nI shipped a keyboard-first interaction layer using Redux middleware. It cut content assembly time by 30% for our beta users.",
     bullets: [],
     colors: { light: "#ffedd5", dark: "#ea580c" },
-    media: { type: "image", src: "/inner-content/content-editor.png", caption: "AI-powered Content Editor interface" },
+    media: {
+      type: "image",
+      src: "/inner-content/content-editor.png",
+      caption: "HubSpot's current Editor interface",
+    },
   },
   {
     id: "exp-kaimz",
@@ -57,7 +66,8 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/kaimz.png",
     role: "Software Engineering Intern (Security Platform)",
     period: "Fall 2025",
-    description: "Built a security monitoring agent in Go that collects system logs and network events from 20+ devices in real-time. The system uses JWT auth, REST APIs, and stores data in AWS S3.\n\nI also developed a RAG-based chatbot for querying historical security events, helping analysts investigate incidents 70% faster through natural language.",
+    description:
+      "Built a security agent in Go that monitors logs across 20+ devices. It uses JWT auth and pipes everything to S3 for storage.\n\nAlso shipped a RAG chatbot so analysts can query security history. They investigate incidents 70% faster now.",
     bullets: [],
     colors: { light: "#ede9fe", dark: "#7c3aed" },
   },
@@ -69,10 +79,15 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/hubspot.png",
     role: "Software Engineering Intern (Sales Workspace)",
     period: "Summer 2025",
-    description: "Shipped HubSpot's next-gen Sales Workspace used by 200k+ daily active sales reps. I improved page load times by 12% through lazy loading and GraphQL caching strategies.\n\nI also resolved 45+ support tickets and architected efficient data-fetching patterns that reduced payload sizes by 35%.",
+    description:
+      "Worked on the Sales Workspace used by 200k+ daily reps. I sped up page loads by 12% using some aggressive GraphQL caching.\n\nCrushed 45+ support tickets and optimized data fetching patterns. Payload sizes dropped by 35%.",
     bullets: [],
     colors: { light: "#ffedd5", dark: "#ea580c" },
-    media: { type: "image", src: "/inner-content/sales-workspace.png", caption: "Sales Workspace dashboard" },
+    media: {
+      type: "image",
+      src: "/inner-content/sales-workspace.png",
+      caption: "Sales Workspace dashboard",
+    },
   },
   {
     id: "exp-bridgewell",
@@ -82,10 +97,15 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/bridgewell.png",
     role: "Software Engineering Intern (Client Onboarding)",
     period: "Winter 2025",
-    description: "Built RESTful APIs for document upload and validation workflows, accelerating client onboarding by 35% and cutting manual processing by 15+ hours per week.\n\nI also implemented an automated email scheduler for follow-up reminders that improved document completion rates by 28%.",
+    description:
+      "Built the REST APIs that handle document uploads and validation. It cut client onboarding time by 35% and killed a lot of manual work.\n\nAlso shipped an automated email scheduler. Document completion rates jumped 28% immediately.",
     bullets: [],
     colors: { light: "#e0f2fe", dark: "#0284c7" },
-    media: { type: "image", src: "/inner-content/bridgewell.png", caption: "Client onboarding dashboard" },
+    media: {
+      type: "image",
+      src: "/inner-content/bridgewell.png",
+      caption: "Client onboarding dashboard",
+    },
   },
 ];
 
@@ -97,13 +117,18 @@ export const projects: ProjectCard[] = [
     title: "Pickle",
     tagline: "AI Streamer Companion",
     image: "/projects/pickle.jpg",
-    description: "A real-time AI companion for Twitch streamers that can listen, watch, and talk back. It fuses chat messages, voice, and screen vision into one conversational AI co-host.\n\nBuilt with FastAPI and Electron/React, featuring a hybrid RAG memory system for coherent multi-turn conversations with just 1.5s latency.",
+    description:
+      "A real-time AI co-host for Twitch streamers. It watches the screen, reads chat, and actually talks back.\n\nBuilt with FastAPI and Electron. I used a hybrid memory system to keep conversation latency under 1.5s.",
     technologies: [],
     bullets: [],
     githubUrl: "https://github.com/FuJacob/nexhacks",
     devpostUrl: "https://devpost.com/software/pickle-0faw9d",
     colors: { light: "#dcfce7", dark: "#16a34a" },
-    media: { type: "youtube", src: "YOBwplgd4hc", caption: "Pickle demo at NexHacks" },
+    media: {
+      type: "youtube",
+      src: "YOBwplgd4hc",
+      caption: "Pickle demo at NexHacks",
+    },
   },
   {
     id: "proj-rbveal",
@@ -112,13 +137,18 @@ export const projects: ProjectCard[] = [
     title: "RBveal",
     tagline: "Phishing Simulator",
     image: "/projects/rbveal.png",
-    description: "A multi-stage phishing simulator that demonstrates how modern scam attacks work. Won RBC's 1st Place Prize ($1,000) among 550+ competitors at UofTHacks 2025.\n\nI built the scammer-call agent using WebSockets, Deepgram, and Twilio, achieving real-time voice conversations with under 1.2s latency.",
-    award: "UofTHacks Winner – RBC 1st Place Prize ($1,000)",
+    description:
+      "A multi-stage simulator that demos modern phishing scams. We took home 1st place at UofTHacks 2025.\n\nI built the voice agent using Deepgram and Twilio. It holds full conversations with victims with under 1.2s latency.",
+    award: "UofTHacks Winner, RBC 1st Place Prize ($1,000)",
     technologies: [],
     bullets: [],
     githubUrl: "https://github.com/FuJacob/rbveal",
     colors: { light: "#f3e8ff", dark: "#9333ea" },
-    media: { type: "youtube", src: "v8duvEudLiU", caption: "RBveal demo at UofTHacks" },
+    media: {
+      type: "youtube",
+      src: "v8duvEudLiU",
+      caption: "RBveal demo at UofTHacks",
+    },
   },
   {
     id: "proj-fairfi",
@@ -127,8 +157,9 @@ export const projects: ProjectCard[] = [
     title: "FairFi",
     tagline: "Call-Agent Bias Detection",
     image: "/projects/fairfi.jpg",
-    description: "Detects bias in financial service call agents in real-time. Won P&G's 1st Place Prize ($750) among 640+ competitors at DeltaHacks 2025.\n\nBuilt with Twilio and Cohere for real-time voice analysis, storing interaction data in MongoDB for bias pattern detection.",
-    award: "DeltaHacks Winner – P&G 1st Place ($750)",
+    description:
+      "Detects bias in call center agents in real-time. Won P&G's top prize at DeltaHacks 2025.\n\nUses Twilio and Cohere to analyze voice streams. We dump interaction patterns into MongoDB to flag issues.",
+    award: "DeltaHacks Winner, P&G 1st Place ($750)",
     technologies: [],
     bullets: [],
     githubUrl: "https://github.com/fujacob/fairfi",
@@ -142,12 +173,17 @@ export const projects: ProjectCard[] = [
     title: "Metro Apocalypse",
     tagline: "Zombie Tag .IO Game",
     image: "/projects/metroapocalypse.png",
-    description: "A multiplayer zombie tag .io game built with the Modd.io HTML5 engine. Grew to 248K+ unique users with 4.2M+ play sessions.\n\nMonetized through Patreon and in-game microtransactions, generating $2,500+ CAD in revenue.",
+    description:
+      "A multiplayer zombie tag game built on Modd.io. It blew up to 248k+ users and 4.2M plays.\n\nMonetized via Patreon and microtransactions. Generated over $2,500 CAD while I was in high school.",
     technologies: [],
     bullets: [],
     liveUrl: "https://www.patreon.com/amuletio",
     colors: { light: "#ecfccb", dark: "#65a30d" },
-    media: { type: "image", src: "/inner-content/metro-apocalypse.png", caption: "Metro Apocalypse gameplay" },
+    media: {
+      type: "image",
+      src: "/inner-content/metro-apocalypse.png",
+      caption: "Metro Apocalypse gameplay",
+    },
   },
   {
     id: "proj-uwshuffle",
@@ -156,7 +192,8 @@ export const projects: ProjectCard[] = [
     title: "UW Shuffle",
     tagline: "Course Scheduler",
     image: "/projects/uw-shuffle.png",
-    description: "A course scheduling tool for University of Waterloo students. Helps students find optimal class schedules by shuffling through all possible combinations.\n\nBuilt with Next.js and deployed at uwshuffle.com. Used by hundreds of students each term.",
+    description:
+      "A scheduler for Waterloo students that brute-forces the best timetable. Live at uwshuffle.com.\n\nBuilt with Next.js. Hundreds of students use it every term to save their sanity.",
     technologies: [],
     bullets: [],
     liveUrl: "https://uwshuffle.com",
