@@ -81,7 +81,7 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
   const accentDark = card.colors.dark;
 
   return (
-    <div className="px-1 pt-3 pb-3 flex flex-col h-[400px]">
+    <div className="px-1 pt-3 pb-3 flex flex-col h-125">
       {/* Header with clear button */}
       <div className="flex justify-end mb-2">
         <button
@@ -97,44 +97,25 @@ export function ChatCardDetails({ card }: { card: ChatCardType }) {
       </div>
 
       {/* Messages area */}
-      <div className="flex-1 overflow-y-auto space-y-3 mb-3 pr-1">
+      <div className="flex-1 overflow-y-auto space-y-2 mb-3 pr-1">
         {messages.map((msg, i) => (
           <div
             key={i}
-            className={`text-xs flex ${msg.isUser ? "justify-end" : "justify-start"}`}
+            className={`text-xs ${msg.isUser ? "text-right text-muted-foreground" : "text-left text-foreground"}`}
+            style={{ whiteSpace: "pre-wrap" }}
           >
-            <span
-              className="inline-block px-3 py-2 rounded-lg max-w-[85%]"
-              style={{
-                whiteSpace: "pre-wrap",
-                backgroundColor: msg.isUser ? accentDark : accentLight,
-                color: msg.isUser ? "white" : "#1f2937",
-                border: `1px solid color-mix(in srgb, ${accentDark} 30%, ${accentLight})`,
-              }}
-            >
-              {msg.isUser ? (
-                msg.text
-              ) : (
-                <span dangerouslySetInnerHTML={{ __html: msg.text }} />
-              )}
-            </span>
+            {msg.isUser ? (
+              msg.text
+            ) : (
+              <span dangerouslySetInnerHTML={{ __html: msg.text }} />
+            )}
           </div>
         ))}
         {/* Streaming message */}
         {streamingText && (
-          <div className="text-xs flex justify-start">
-            <span
-              className="inline-block px-3 py-2 rounded-lg max-w-[85%]"
-              style={{
-                whiteSpace: "pre-wrap",
-                backgroundColor: accentLight,
-                color: "#1f2937",
-                border: `1px solid color-mix(in srgb, ${accentDark} 30%, ${accentLight})`,
-              }}
-            >
-              <span dangerouslySetInnerHTML={{ __html: streamingText }} />
-              <span className="inline-block w-1.5 h-3 bg-current opacity-50 animate-pulse ml-0.5" />
-            </span>
+          <div className="text-xs text-left text-foreground" style={{ whiteSpace: "pre-wrap" }}>
+            <span dangerouslySetInnerHTML={{ __html: streamingText }} />
+            <span className="inline-block w-1.5 h-3 bg-current opacity-50 animate-pulse ml-0.5" />
           </div>
         )}
         <div ref={messagesEndRef} />
