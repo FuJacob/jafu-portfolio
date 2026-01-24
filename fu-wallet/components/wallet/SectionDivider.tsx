@@ -9,7 +9,7 @@ interface SectionDividerProps {
 
 export function SectionDivider({ label, className }: SectionDividerProps) {
   return (
-    <div className={cn("py-1 mb-2", className)}>
+    <div className={cn("pt-1 pb-3", className)}>
       <span className="text-caption text-muted-foreground">
         {label}
       </span>
