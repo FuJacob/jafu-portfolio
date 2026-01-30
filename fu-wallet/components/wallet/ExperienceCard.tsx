@@ -39,7 +39,7 @@ export function ExperienceCard({
         {/* Credit card layout: Logo small, Company name, Period */}
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded bg-white/90 flex items-center justify-center overflow-hidden">
+            <div className="h-6 w-6 rounded bg-white/90 dark:bg-gray-800/90 flex items-center justify-center overflow-hidden">
               <Image
                 src={card.logo}
                 alt={card.company}

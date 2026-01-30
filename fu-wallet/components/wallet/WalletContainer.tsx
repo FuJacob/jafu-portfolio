@@ -11,14 +11,26 @@ export function WalletContainer() {
   const { expandedCardId, expandedSection, toggleCard } = useWalletState();
 
   return (
-    <div className="min-h-screen w-full bg-white relative flex items-center justify-center py-8">
+    <div className="min-h-screen w-full bg-white dark:bg-gray-950 relative flex items-center justify-center py-8">
       {/* Grid Background */}
       <div
-        className="absolute inset-0 z-0 opacity-50"
+        className="absolute inset-0 z-0 opacity-50 dark:opacity-30"
         style={{
           backgroundImage: `
             linear-gradient(to right, #e5e7eb 1px, transparent 1px),
             linear-gradient(to bottom, #e5e7eb 1px, transparent 1px)
+          `,
+          backgroundSize: "50px 50px",
+          backgroundPosition: "center -30px",
+        }}
+      />
+      {/* Dark mode grid - only show in dark mode */}
+      <div
+        className="absolute inset-0 z-0 opacity-0 dark:opacity-30"
+        style={{
+          backgroundImage: `
+            linear-gradient(to right, #374151 1px, transparent 1px),
+            linear-gradient(to bottom, #374151 1px, transparent 1px)
           `,
           backgroundSize: "50px 50px",
           backgroundPosition: "center -30px",

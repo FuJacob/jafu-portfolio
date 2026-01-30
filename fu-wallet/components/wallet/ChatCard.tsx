@@ -34,7 +34,7 @@ export function ChatCard({ card, isExpanded, onClick }: ChatCardProps) {
       <div className="p-3 pr-8">
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded bg-white/90 flex items-center justify-center">
+            <div className="h-6 w-6 rounded bg-white/90 dark:bg-gray-800/90 flex items-center justify-center">
               <MessageCircle className="h-4 w-4 text-indigo-600" />
             </div>
             <h3 className={`text-sm font-semibold ${textColor}`}>

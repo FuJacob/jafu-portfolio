@@ -49,7 +49,7 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
         <div className="flex items-center justify-between gap-2">
           <div className="flex items-center gap-2">
             {card.image && (
-              <div className="h-6 w-6 rounded bg-white/90 overflow-hidden shrink-0">
+              <div className="h-6 w-6 rounded bg-white/90 dark:bg-gray-800/90 overflow-hidden shrink-0">
                 <Image
                   src={card.image}
                   alt={card.title}
