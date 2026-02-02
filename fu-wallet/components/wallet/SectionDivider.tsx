@@ -10,9 +10,9 @@ interface SectionDividerProps {
 export function SectionDivider({ label, className }: SectionDividerProps) {
   return (
     <div className={cn("pt-1 pb-3", className)}>
-      <span className="text-caption text-muted-foreground">
+      <h2 className="text-caption text-muted-foreground">
         {label}
-      </span>
+      </h2>
     </div>
   );
 }

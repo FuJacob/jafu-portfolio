@@ -79,15 +79,16 @@ export function CardStack({
         {isThisSectionExpanded && expandedIndex !== -1 && (
           <motion.div
             key="details"
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
+            initial={{ opacity: 0, maxHeight: 0 }}
+            animate={{ opacity: 1, maxHeight: 2000 }}
+            exit={{ opacity: 0, maxHeight: 0 }}
             transition={{
               type: "spring",
               stiffness: 400,
               damping: 35,
             }}
             className="overflow-hidden"
+            style={{ willChange: "max-height, opacity" }}
           >
             {renderCardDetails(cards[expandedIndex])}
           </motion.div>

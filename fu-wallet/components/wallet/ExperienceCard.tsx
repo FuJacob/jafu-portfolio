@@ -48,9 +48,9 @@ export function ExperienceCard({
                 className="object-contain"
               />
             </div>
-            <h3 className={`text-sm font-semibold ${textColor}`}>
+            <div className={`text-sm font-semibold ${textColor}`}>
               {card.company}
-            </h3>
+            </div>
           </div>
           <span
             className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}

@@ -59,9 +59,9 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
                 />
               </div>
             )}
-            <h3 className={`text-sm font-semibold ${textColor}`}>
+            <div className={`text-sm font-semibold ${textColor}`}>
               {card.title}
-            </h3>
+            </div>
           </div>
           <span
             className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}

@@ -60,7 +60,7 @@ export function WalletContainer() {
                   key={section.id}
                   animate={{
                     opacity: isOtherSectionExpanded ? 0 : 1,
-                    height: isOtherSectionExpanded ? 0 : "auto",
+                    maxHeight: isOtherSectionExpanded ? 0 : 1500,
                   }}
                   transition={{
                     type: "spring",
@@ -70,20 +70,22 @@ export function WalletContainer() {
                   style={{
                     overflow: isOtherSectionExpanded ? "hidden" : "visible",
                     pointerEvents: isOtherSectionExpanded ? "none" : "auto",
+                    willChange: "max-height, opacity",
                   }}
                 >
                   {/* Section divider */}
                   <AnimatePresence>
                     {!expandedCardId && (
                       <motion.div
-                        initial={{ opacity: 0, height: 0 }}
-                        animate={{ opacity: 1, height: "auto" }}
-                        exit={{ opacity: 0, height: 0 }}
+                        initial={{ opacity: 0, maxHeight: 0 }}
+                        animate={{ opacity: 1, maxHeight: 100 }}
+                        exit={{ opacity: 0, maxHeight: 0 }}
                         transition={{
                           type: "spring",
                           stiffness: 400,
                           damping: 30,
                         }}
+                        style={{ willChange: "max-height, opacity" }}
                       >
                         <SectionDivider label={section.label} />
                       </motion.div>

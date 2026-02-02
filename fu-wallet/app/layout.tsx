@@ -8,6 +8,9 @@ const questrial = DM_Sans({
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-questrial",
   subsets: ["latin"],
+  display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = {

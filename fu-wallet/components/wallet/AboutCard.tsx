@@ -42,9 +42,9 @@ export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
                 className="object-contain"
               />
             </div>
-            <h3 className={`text-sm font-semibold ${textColor}`}>
+            <div className={`text-sm font-semibold ${textColor}`}>
               {card.name}
-            </h3>
+            </div>
           </div>
           <span
             className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
