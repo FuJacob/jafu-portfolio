@@ -33,7 +33,7 @@ export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
       onToggle={onClick}
       header={
         <div className="flex items-center justify-between gap-2">
-          <div className="flex min-w-0 items-center gap-2">
+          <div className="flex min-w-0 items-center gap-1.5">
             <div className="h-6 w-6 rounded bg-white/90 dark:bg-gray-800/90 flex items-center justify-center overflow-hidden">
               <Image
                 src={card.education.logo}
@@ -44,12 +44,12 @@ export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
                 className="object-contain"
               />
             </div>
-            <div className={`truncate text-sm font-semibold ${textColor}`}>
+            <div className={`truncate text-[15px] font-semibold ${textColor}`}>
               {card.name}
             </div>
           </div>
           <span
-            className={`shrink-0 text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
+            className={`shrink-0 text-[11px] font-medium uppercase tracking-wide ${mutedColor}`}
           >
             {card.status}
           </span>

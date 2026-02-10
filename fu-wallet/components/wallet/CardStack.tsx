@@ -14,7 +14,7 @@ interface CardStackProps {
 
 export function CardStack({ cards, expandedCardId, onCardClick }: CardStackProps) {
   return (
-    <div className="space-y-3 sm:space-y-4">
+    <div className="space-y-2 sm:space-y-2.5">
       {cards.map((card) => {
         const isExpanded = card.id === expandedCardId;
 

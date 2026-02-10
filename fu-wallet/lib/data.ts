@@ -51,9 +51,9 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineering Intern (AI-Editor Platform)",
     period: "Winter 2026",
     summary:
-      "Building the next-gen AI editor platform. I shipped keyboard-first interaction middleware that reduced content assembly time by about 30% in beta.",
+      "Building the next generation content editor on HubSpot's AI platform. The project focuses on translating natural-language instructions into structured, production-ready modules.",
     description:
-      "Building the next-gen Content Editor on the AI Platform team. We're generating complex layouts in real-time from simple text prompts.\n\nI shipped a keyboard-first interaction layer using Redux middleware. It cut content assembly time by 30% for our beta users.",
+      "Building the next generation Content Editor on HubSpot's AI Platform team. We are designing a system that turns plain-language prompts into complete page sections while preserving brand and layout constraints.\n\nI worked on the orchestration layer that sequences prompt interpretation, module generation, and validation so the editor feels reliable and fast for marketers working in real workflows.",
     bullets: [],
     colors: { light: "#ffedd5", dark: "#ea580c" },
     media: {

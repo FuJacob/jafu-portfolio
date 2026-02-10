@@ -38,7 +38,7 @@ export function WalletHeader({
   className,
 }: WalletHeaderProps) {
   return (
-    <header className={cn("py-4 sm:py-5", className)}>
+    <header className={cn("py-2 sm:py-3", className)}>
       <div className="flex justify-between">
         {/* Left: Name + Education */}
         <div>
@@ -47,7 +47,7 @@ export function WalletHeader({
         </div>
 
         {/* Right: Socials + Book a meeting - aligned properly */}
-        <div className="flex flex-col items-end justify-center gap-3">
+        <div className="flex flex-col items-end justify-center gap-2">
           <div className="flex items-center gap-2">
             <a
               href={socials.linkedin}

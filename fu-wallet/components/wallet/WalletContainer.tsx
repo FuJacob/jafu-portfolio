@@ -8,9 +8,10 @@ import { CardStack } from "./CardStack";
 
 export function WalletContainer() {
   const { expandedCardId, toggleCard } = useWalletState();
+  const visibleSections = walletSections.filter((section) => section.id !== "chat");
 
   return (
-    <div className="relative flex min-h-screen w-full items-center justify-center bg-white py-10 dark:bg-gray-950 sm:py-12">
+    <div className="relative flex min-h-screen w-full items-center justify-center bg-white py-6 dark:bg-gray-950 sm:py-8">
       <div
         className="pointer-events-none absolute inset-0 z-0 opacity-45 dark:opacity-25"
         style={{
@@ -34,7 +35,7 @@ export function WalletContainer() {
         }}
       />
 
-      <main className="relative z-10 min-h-[720px] w-full max-w-sm px-4 sm:max-w-xl sm:px-6 lg:max-w-3xl lg:px-8">
+      <main className="relative z-10 min-h-[620px] w-full max-w-sm px-3 sm:max-w-lg sm:px-4 lg:max-w-2xl lg:px-6">
         <WalletHeader
           name={aboutCard.name}
           education={aboutCard.education.program}
@@ -42,9 +43,9 @@ export function WalletContainer() {
           calendarLink={aboutCard.calendarLink}
         />
 
-        <div className="space-y-3">
-          {walletSections.map((section) => (
-            <section key={section.id} className="space-y-2 sm:space-y-3">
+        <div className="space-y-1.5 sm:space-y-2">
+          {visibleSections.map((section) => (
+            <section key={section.id} className="space-y-1.5 sm:space-y-2">
               <SectionDivider label={section.label} />
               <CardStack
                 cards={section.cards}

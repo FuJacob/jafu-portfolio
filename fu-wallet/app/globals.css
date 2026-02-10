@@ -157,13 +157,13 @@
   }
   
   .text-body {
-    font-size: 0.8125rem;
-    line-height: 1.5;
+    font-size: 0.875rem;
+    line-height: 1.4;
     font-weight: 400;
   }
   
   .text-caption {
-    font-size: 0.6875rem;
+    font-size: 0.75rem;
     line-height: 1.4;
     font-weight: 500;
     letter-spacing: 0.02em;

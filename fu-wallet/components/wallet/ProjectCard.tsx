@@ -3,6 +3,7 @@
 import { ProjectCard as ProjectCardType } from "@/lib/types";
 import Image from "next/image";
 import { useTheme } from "next-themes";
+import { ExternalLink, Github, Link2 } from "lucide-react";
 import { CardShell } from "./CardShell";
 import { CardExpansion } from "./CardExpansion";
 
@@ -22,6 +23,29 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
   const summary = card.summary || card.description.split("\n\n")[0] || card.tagline;
   const imageSrc = card.media?.type === "image" ? card.media.src : card.image;
   const imageAlt = card.media?.caption || card.title;
+  const links = [
+    card.githubUrl
+      ? {
+          href: card.githubUrl,
+          label: "GitHub",
+          icon: <Github className="h-3 w-3" aria-hidden="true" />,
+        }
+      : null,
+    card.devpostUrl
+      ? {
+          href: card.devpostUrl,
+          label: "Devpost",
+          icon: <Link2 className="h-3 w-3" aria-hidden="true" />,
+        }
+      : null,
+    card.liveUrl
+      ? {
+          href: card.liveUrl,
+          label: "Live",
+          icon: <ExternalLink className="h-3 w-3" aria-hidden="true" />,
+        }
+      : null,
+  ].filter((item): item is NonNullable<typeof item> => item !== null);
 
   return (
     <CardShell
@@ -31,7 +55,7 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
       onToggle={onClick}
       header={
         <div className="flex items-center justify-between gap-2">
-          <div className="flex min-w-0 items-center gap-2">
+          <div className="flex min-w-0 items-center gap-1.5">
             {card.image && (
               <div className="h-6 w-6 rounded bg-white/90 dark:bg-gray-800/90 overflow-hidden shrink-0">
                 <Image
@@ -44,12 +68,12 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
                 />
               </div>
             )}
-            <div className={`truncate text-sm font-semibold ${textColor}`}>
+            <div className={`truncate text-[15px] font-semibold ${textColor}`}>
               {card.title}
             </div>
           </div>
           <span
-            className={`max-w-32 truncate text-right text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
+            className={`max-w-32 truncate text-right text-[11px] font-medium uppercase tracking-wide ${mutedColor}`}
           >
             {card.tagline}
           </span>
@@ -61,6 +85,7 @@ export function ProjectCard({ card, isExpanded, onClick }: ProjectCardProps) {
         summary={summary}
         imageSrc={imageSrc}
         imageAlt={imageAlt}
+        links={links}
       />
     </CardShell>
   );

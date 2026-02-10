@@ -37,7 +37,7 @@ export function CardShell({
         onClick={onToggle}
         aria-expanded={isExpanded}
         className={cn(
-          "w-full p-3 pr-8 sm:p-4 sm:pr-10 text-left",
+          "w-full p-2.5 pr-8 sm:p-3 sm:pr-9 text-left leading-tight",
           "transition-[filter] duration-150 motion-reduce:transition-none",
           "hover:brightness-[1.02]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/25"
