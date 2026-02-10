@@ -26,6 +26,7 @@ export interface AboutCard extends BaseCard {
   section: "about";
   name: string;
   avatar: string;
+  summary?: string;
   education: {
     school: string;
     program: string;
@@ -52,6 +53,7 @@ export interface ExperienceCard extends BaseCard {
   role: string;
   period: string;
   location?: string;
+  summary?: string;
   description: string;
   bullets: string[];
   technologies?: string[];
@@ -64,6 +66,7 @@ export interface ProjectCard extends BaseCard {
   title: string;
   tagline: string;
   image?: string;
+  summary?: string;
   description: string;
   award?: string;
   technologies: string[];
@@ -79,6 +82,7 @@ export interface ChatCard extends BaseCard {
   section: "chat";
   title: string;
   subtitle: string;
+  summary?: string;
 }
 
 export type WalletCard = AboutCard | ExperienceCard | ProjectCard | ChatCard;

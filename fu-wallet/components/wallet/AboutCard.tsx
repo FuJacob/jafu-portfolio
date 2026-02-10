@@ -3,6 +3,8 @@
 import { AboutCard as AboutCardType } from "@/lib/types";
 import { useTheme } from "next-themes";
 import Image from "next/image";
+import { CardShell } from "./CardShell";
+import { CardExpansion } from "./CardExpansion";
 
 interface AboutCardProps {
   card: AboutCardType;
@@ -16,70 +18,50 @@ export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
   const bgColor = isDark ? card.colors.dark : card.colors.light;
   const textColor = isDark ? "text-white" : "text-gray-900";
   const mutedColor = isDark ? "text-white/70" : "text-gray-600";
+  const borderColor = `color-mix(in srgb, ${card.colors.dark} 40%, ${card.colors.light})`;
+  const summary =
+    card.summary ||
+    "Waterloo CS student focused on infrastructure, distributed systems, and product-minded engineering. Previously interned at HubSpot and Bridgewell.";
+  const imageSrc = card.media?.type === "image" ? card.media.src : card.avatar;
+  const imageAlt = card.media?.caption || card.name;
 
   return (
-    <div
-      onClick={onClick}
-      className="relative overflow-hidden cursor-pointer rounded-lg transition-all duration-150 hover:scale-[1.02]"
-      style={{
-        backgroundColor: bgColor,
-        border: `1.5px solid color-mix(in srgb, ${card.colors.dark} 40%, ${card.colors.light})`,
-      }}
-    >
-      {/* Perforation line on right side */}
-      <div className="absolute right-4 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />
-
-      <div className="p-3 pr-8">
-        {/* Same layout as ExperienceCard: Logo, Name, Date on right */}
+    <CardShell
+      bgColor={bgColor}
+      borderColor={borderColor}
+      isExpanded={isExpanded}
+      onToggle={onClick}
+      header={
         <div className="flex items-center justify-between gap-2">
-          <div className="flex items-center gap-2">
+          <div className="flex min-w-0 items-center gap-2">
             <div className="h-6 w-6 rounded bg-white/90 dark:bg-gray-800/90 flex items-center justify-center overflow-hidden">
               <Image
                 src={card.education.logo}
                 alt={card.education.school}
                 width={16}
                 height={16}
+                sizes="16px"
                 className="object-contain"
               />
             </div>
-            <div className={`text-sm font-semibold ${textColor}`}>
+            <div className={`truncate text-sm font-semibold ${textColor}`}>
               {card.name}
             </div>
           </div>
           <span
-            className={`text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
+            className={`shrink-0 text-[10px] font-medium uppercase tracking-wide ${mutedColor}`}
           >
             {card.status}
           </span>
         </div>
-      </div>
-    </div>
-  );
-}
-
-import { MediaDisplay } from "./MediaDisplay";
-
-// ... existing AboutCard component ...
-
-export function AboutCardDetails({ card }: { card: AboutCardType }) {
-  return (
-    <div className="px-1 pt-3 pb-3 space-y-2">
-      {/* Education */}
-      <p className="text-xs text-muted-foreground">
-        {card.education.program} @ {card.education.school}
-      </p>
-
-      {/* Personal - as paragraphs */}
-      <div className="space-y-2">
-        {card.personalFacts.map((fact, i) => (
-          <p key={i} className="text-xs text-muted-foreground">
-            {fact}
-          </p>
-        ))}
-      </div>
-
-      {/* Media */}
-      {card.media && <MediaDisplay media={card.media} colors={card.colors} forceAspectRatio={false} />}
-    </div>
+      }
+    >
+      <CardExpansion
+        isExpanded={isExpanded}
+        summary={summary}
+        imageSrc={imageSrc}
+        imageAlt={imageAlt}
+      />
+    </CardShell>
   );
 }

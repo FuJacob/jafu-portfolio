@@ -1,32 +1,29 @@
 "use client";
 
 import { useState, useCallback, useEffect } from "react";
-import { CardSection } from "@/lib/types";
 
 interface WalletState {
   expandedCardId: string | null;
-  expandedSection: CardSection | null;
 }
 
 export function useWalletState() {
   const [state, setState] = useState<WalletState>({
     expandedCardId: null,
-    expandedSection: null,
   });
 
-  const expandCard = useCallback((cardId: string, section: CardSection) => {
-    setState({ expandedCardId: cardId, expandedSection: section });
+  const expandCard = useCallback((cardId: string) => {
+    setState({ expandedCardId: cardId });
   }, []);
 
   const collapseCard = useCallback(() => {
-    setState({ expandedCardId: null, expandedSection: null });
+    setState({ expandedCardId: null });
   }, []);
 
-  const toggleCard = useCallback((cardId: string, section: CardSection) => {
+  const toggleCard = useCallback((cardId: string) => {
     setState((prev) =>
       prev.expandedCardId === cardId
-        ? { expandedCardId: null, expandedSection: null }
-        : { expandedCardId: cardId, expandedSection: section }
+        ? { expandedCardId: null }
+        : { expandedCardId: cardId }
     );
   }, []);
 
@@ -44,7 +41,6 @@ export function useWalletState() {
 
   return {
     expandedCardId: state.expandedCardId,
-    expandedSection: state.expandedSection,
     isExpanded: state.expandedCardId !== null,
     expandCard,
     collapseCard,

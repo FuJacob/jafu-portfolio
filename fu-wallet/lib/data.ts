@@ -12,7 +12,9 @@ export const aboutCard: AboutCard = {
   section: "about",
   colors: { light: "#dbeafe", dark: "#1e40af" },
   name: "Jacob Fu",
-  avatar: "/inner-content/me.JPG",
+  avatar: "/inner-content/me.png",
+  summary:
+    "Waterloo CS student focused on infrastructure and distributed systems. I build product-forward software that ships quickly and gets real usage.",
   education: {
     school: "University of Waterloo",
     program: "Open to Internships",
@@ -48,6 +50,8 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/hubspot.png",
     role: "Software Engineering Intern (AI-Editor Platform)",
     period: "Winter 2026",
+    summary:
+      "Building the next-gen AI editor platform. I shipped keyboard-first interaction middleware that reduced content assembly time by about 30% in beta.",
     description:
       "Building the next-gen Content Editor on the AI Platform team. We're generating complex layouts in real-time from simple text prompts.\n\nI shipped a keyboard-first interaction layer using Redux middleware. It cut content assembly time by 30% for our beta users.",
     bullets: [],
@@ -66,6 +70,8 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/kaimz.png",
     role: "Software Engineering Intern (Security Platform)",
     period: "Fall 2025",
+    summary:
+      "Built a Go-based security agent for 20+ devices and shipped a RAG chatbot for faster investigation workflows.",
     description:
       "Built a security agent in Go that monitors logs across 20+ devices. It uses JWT auth and pipes everything to S3 for storage.\n\nAlso shipped a RAG chatbot so analysts can query security history. They investigate incidents 70% faster now.",
     bullets: [],
@@ -79,6 +85,8 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/hubspot.png",
     role: "Software Engineering Intern (Sales Workspace)",
     period: "Summer 2025",
+    summary:
+      "Improved performance for Sales Workspace with GraphQL caching and payload tuning, resulting in faster page loads and leaner data fetches.",
     description:
       "Worked on the Sales Workspace used by 200k+ daily reps. I sped up page loads by 12% using some aggressive GraphQL caching.\n\nCrushed 45+ support tickets and optimized data fetching patterns. Payload sizes dropped by 35%.",
     bullets: [],
@@ -97,6 +105,8 @@ export const experiences: ExperienceCard[] = [
     logo: "/companies/bridgewell.png",
     role: "Software Engineering Intern (Client Onboarding)",
     period: "Winter 2025",
+    summary:
+      "Built onboarding APIs and document validation flows, then added automated scheduling that materially improved document completion rates.",
     description:
       "Built the REST APIs that handle document uploads and validation. It cut client onboarding time by 35% and killed a lot of manual work.\n\nAlso shipped an automated email scheduler. Document completion rates jumped 28% immediately.",
     bullets: [],
@@ -117,6 +127,8 @@ export const projects: ProjectCard[] = [
     title: "Pickle",
     tagline: "AI Streamer Companion",
     image: "/projects/pickle.jpg",
+    summary:
+      "A real-time AI co-host for streamers that reads chat and screen context. Hybrid memory and FastAPI + Electron kept response latency under 1.5 seconds.",
     description:
       "A real-time AI co-host for Twitch streamers. It watches the screen, reads chat, and actually talks back.\n\nBuilt with FastAPI and Electron. I used a hybrid memory system to keep conversation latency under 1.5s.",
     technologies: [],
@@ -137,6 +149,8 @@ export const projects: ProjectCard[] = [
     title: "RBveal",
     tagline: "Phishing Simulator",
     image: "/projects/rbveal.png",
+    summary:
+      "A multi-stage phishing simulator that won at UofTHacks. I built the voice agent stack with Deepgram and Twilio for low-latency calls.",
     description:
       "A multi-stage simulator that demos modern phishing scams. We took home 1st place at UofTHacks 2025.\n\nI built the voice agent using Deepgram and Twilio. It holds full conversations with victims with under 1.2s latency.",
     award: "UofTHacks Winner, RBC 1st Place Prize ($1,000)",
@@ -157,6 +171,8 @@ export const projects: ProjectCard[] = [
     title: "FairFi",
     tagline: "Call-Agent Bias Detection",
     image: "/projects/fairfi.jpg",
+    summary:
+      "Real-time bias detection for call center interactions using Twilio and Cohere. Won the P&G top prize at DeltaHacks.",
     description:
       "Detects bias in call center agents in real-time. Won P&G's top prize at DeltaHacks 2025.\n\nUses Twilio and Cohere to analyze voice streams. We dump interaction patterns into MongoDB to flag issues.",
     award: "DeltaHacks Winner, P&G 1st Place ($750)",
@@ -173,6 +189,8 @@ export const projects: ProjectCard[] = [
     title: "Metro Apocalypse",
     tagline: "Zombie Tag .IO Game",
     image: "/projects/metroapocalypse.png",
+    summary:
+      "A multiplayer game that scaled to 248k+ users and 4.2M plays, then monetized through Patreon and in-game purchases.",
     description:
       "A multiplayer zombie tag game built on Modd.io. It blew up to 248k+ users and 4.2M plays.\n\nMonetized via Patreon and microtransactions. Generated over $2,500 CAD while I was in high school.",
     technologies: [],
@@ -192,6 +210,8 @@ export const projects: ProjectCard[] = [
     title: "UW Shuffle",
     tagline: "Course Scheduler",
     image: "/projects/uw-shuffle.png",
+    summary:
+      "A course scheduler that brute-forces better timetables for Waterloo students, built with Next.js and used each academic term.",
     description:
       "A scheduler for Waterloo students that brute-forces the best timetable. Live at uwshuffle.com.\n\nBuilt with Next.js. Hundreds of students use it every term to save their sanity.",
     technologies: [],
@@ -208,6 +228,8 @@ export const chatCard: ChatCard = {
   section: "chat",
   title: "Chat with me",
   subtitle: "Ask me anything about my experience",
+  summary:
+    "Ask about my internships, projects, and stack choices. I can break down what I built, why it mattered, and how I approach engineering tradeoffs.",
   colors: { light: "#e0e7ff", dark: "#4f46e5" },
 };
 

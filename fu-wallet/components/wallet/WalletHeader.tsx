@@ -38,7 +38,7 @@ export function WalletHeader({
   className,
 }: WalletHeaderProps) {
   return (
-    <header className={cn("py-2", className)}>
+    <header className={cn("py-4 sm:py-5", className)}>
       <div className="flex justify-between">
         {/* Left: Name + Education */}
         <div>

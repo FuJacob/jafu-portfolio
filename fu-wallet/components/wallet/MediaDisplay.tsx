@@ -8,12 +8,14 @@ interface MediaDisplayProps {
   media: CardMedia;
   colors: CardColors;
   forceAspectRatio?: boolean;
+  sizes?: string;
 }
 
 export function MediaDisplay({ 
   media, 
   colors, 
-  forceAspectRatio = true 
+  forceAspectRatio = true,
+  sizes = "(max-width: 640px) 100vw, 720px",
 }: MediaDisplayProps) {
   const { resolvedTheme } = useTheme();
   const isDark = resolvedTheme === "dark";
@@ -30,6 +32,8 @@ export function MediaDisplay({
           <iframe
             src={`https://www.youtube.com/embed/${media.src}`}
             title={media.caption || "Video"}
+            loading="lazy"
+            referrerPolicy="strict-origin-when-cross-origin"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="absolute inset-1 w-[calc(100%-8px)] h-[calc(100%-8px)] rounded-md"
@@ -57,6 +61,7 @@ export function MediaDisplay({
             fill={forceAspectRatio}
             width={!forceAspectRatio ? 800 : undefined}
             height={!forceAspectRatio ? 600 : undefined}
+            sizes={sizes}
             className={forceAspectRatio ? "object-cover" : "w-full h-auto"}
           />
         </div>
