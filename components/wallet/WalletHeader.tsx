@@ -60,7 +60,7 @@ export function WalletHeader({
           </div>
         </div>
 
-        <div className="flex w-36 shrink-0 items-end self-stretch flex-col justify-between pt-0.5 sm:w-40">
+        <div className="flex w-36 shrink-0 items-end self-stretch flex-col justify-between pt-2 sm:w-40">
           <div className="flex items-end gap-1.5 sm:gap-2">
             <a
               href={socials.linkedin}
