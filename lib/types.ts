@@ -27,16 +27,14 @@ export interface AboutCard extends BaseCard {
   name: string;
   avatar: string;
   summary?: string;
-  education: {
+  education?: {
     school: string;
     program: string;
     logo: string;
   };
-  status: string;
-  interests: string[];
-  personalFacts: string[];
-  calendarLink: string;
-  socials: {
+  status?: string;
+  calendarLink?: string;
+  socials?: {
     linkedin: string;
     github: string;
     twitter: string;

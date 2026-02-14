@@ -2,7 +2,6 @@
 
 import { CardMedia, CardColors } from "@/lib/types";
 import Image from "next/image";
-import { useTheme } from "next-themes";
 
 interface MediaDisplayProps {
   media: CardMedia;
@@ -17,9 +16,7 @@ export function MediaDisplay({
   forceAspectRatio = true,
   sizes = "(max-width: 640px) 100vw, 720px",
 }: MediaDisplayProps) {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
-  const bgColor = isDark ? colors.dark : colors.light;
+  const bgColor = `var(--wallet-module-bg, ${colors.light})`;
   const aspectRatioClass = forceAspectRatio ? "aspect-video" : "";
 
   if (media.type === "youtube") {

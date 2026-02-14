@@ -31,10 +31,10 @@ export function CardExpansion({
       )}
     >
       <div className="min-h-0">
-        <div className="border-t border-black/10 dark:border-white/10 px-2.5 pr-8 pb-2.5 pt-1.5 sm:px-3 sm:pr-9 sm:pb-3 sm:pt-2">
+        <div className="border-t border-black/10 dark:border-white/10 px-2 pr-7 pb-2 pt-1 sm:px-2.5 sm:pr-8 sm:pb-2.5 sm:pt-1.5">
           <div className="flex items-start gap-2">
             <p
-              className="min-w-0 flex-1 text-sm leading-relaxed text-muted-foreground"
+              className="min-w-0 flex-1 text-[15px] leading-relaxed text-muted-foreground"
               style={{
                 display: "-webkit-box",
                 WebkitLineClamp: 5,
@@ -47,12 +47,12 @@ export function CardExpansion({
             </p>
 
             {imageSrc && (
-              <div className="relative h-12 w-12 shrink-0 overflow-hidden rounded-md border border-black/10 bg-white/70 dark:border-white/10 dark:bg-white/10 sm:h-14 sm:w-14">
+              <div className="relative h-14 w-14 shrink-0 overflow-hidden rounded-md border border-black/10 bg-white/70 dark:border-white/10 dark:bg-white/10 sm:h-16 sm:w-16">
                 <Image
                   src={imageSrc}
                   alt={imageAlt || "Card preview"}
                   fill
-                  sizes="(max-width: 640px) 48px, 56px"
+                  sizes="(max-width: 640px) 56px, 64px"
                   className="object-cover"
                 />
               </div>
@@ -60,7 +60,7 @@ export function CardExpansion({
           </div>
 
           {links.length > 0 && (
-            <div className="mt-2.5 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
+            <div className="mt-2 flex flex-wrap items-center gap-2 text-xs text-muted-foreground">
               {links.map((link) => (
                 <a
                   key={`${link.href}-${link.label}`}

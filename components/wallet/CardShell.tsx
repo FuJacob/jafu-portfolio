@@ -30,14 +30,14 @@ export function CardShell({
         border: `1.5px solid ${borderColor}`,
       }}
     >
-      <div className="absolute right-4 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />
+      <div className="absolute right-3.5 top-2 bottom-2 w-px border-r border-dashed border-current opacity-30" />
 
       <button
         type="button"
         onClick={onToggle}
         aria-expanded={isExpanded}
         className={cn(
-          "w-full p-2.5 pr-8 sm:p-3 sm:pr-9 text-left leading-tight",
+          "w-full p-2 pr-7 sm:p-2.5 sm:pr-8 text-left leading-tight",
           "transition-[filter] duration-150 motion-reduce:transition-none",
           "hover:brightness-[1.02]",
           "focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-foreground/25"

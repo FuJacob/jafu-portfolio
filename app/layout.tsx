@@ -1,9 +1,10 @@
 import type { Metadata, Viewport } from "next";
-import { DM_Sans } from "next/font/google";
+import { Sour_Gummy } from "next/font/google";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import { ThemeProvider } from "@/components/ThemeProvider";
 import "./globals.css";
 
-const dmSans = DM_Sans({
+const sourGummy = Sour_Gummy({
   weight: ["400", "500", "600", "700", "800"],
   variable: "--font-inter",
   subsets: ["latin"],
@@ -14,7 +15,7 @@ const dmSans = DM_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: "Jacob Fu | Software Engineer",
+    default: "Jacob Fu",
     template: "%s | Jacob Fu",
   },
   description:
@@ -85,8 +86,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={`${dmSans.variable} font-sans antialiased`}>
+      <body className={`${sourGummy.variable} font-sans antialiased`}>
         <ThemeProvider>{children}</ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );

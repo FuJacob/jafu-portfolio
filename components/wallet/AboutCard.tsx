@@ -1,7 +1,6 @@
 "use client";
 
 import { AboutCard as AboutCardType } from "@/lib/types";
-import { useTheme } from "next-themes";
 import Image from "next/image";
 import { CardShell } from "./CardShell";
 import { CardExpansion } from "./CardExpansion";
@@ -13,12 +12,10 @@ interface AboutCardProps {
 }
 
 export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
-  const { resolvedTheme } = useTheme();
-  const isDark = resolvedTheme === "dark";
-  const bgColor = isDark ? card.colors.dark : card.colors.light;
-  const textColor = isDark ? "text-white" : "text-gray-900";
-  const mutedColor = isDark ? "text-white/70" : "text-gray-600";
-  const borderColor = `color-mix(in srgb, ${card.colors.dark} 40%, ${card.colors.light})`;
+  const bgColor = "var(--wallet-module-bg)";
+  const textColor = "text-foreground";
+  const mutedColor = "text-muted-foreground";
+  const borderColor = "var(--wallet-module-border)";
   const summary =
     card.summary ||
     "Waterloo CS student focused on infrastructure, distributed systems, and product-minded engineering. Previously interned at HubSpot and Bridgewell.";
@@ -33,26 +30,28 @@ export function AboutCard({ card, isExpanded, onClick }: AboutCardProps) {
       onToggle={onClick}
       header={
         <div className="flex items-center justify-between gap-2">
-          <div className="flex min-w-0 items-center gap-1.5">
-            <div className="h-6 w-6 rounded bg-white/90 dark:bg-gray-800/90 flex items-center justify-center overflow-hidden">
+          <div className="flex min-w-0 items-center gap-2">
+            <div className="h-7 w-7 shrink-0 rounded overflow-hidden">
               <Image
-                src={card.education.logo}
-                alt={card.education.school}
-                width={16}
-                height={16}
-                sizes="16px"
-                className="object-contain"
+                src={card.education?.logo ?? card.avatar}
+                alt={card.education?.school ?? card.name}
+                width={28}
+                height={28}
+                sizes="28px"
+                className="h-full w-full object-cover"
               />
             </div>
-            <div className={`truncate text-[15px] font-semibold ${textColor}`}>
+            <div className={`truncate text-base font-semibold ${textColor}`}>
               {card.name}
             </div>
           </div>
-          <span
-            className={`shrink-0 text-[11px] font-medium uppercase tracking-wide ${mutedColor}`}
-          >
-            {card.status}
-          </span>
+          {card.status && (
+            <span
+              className={`shrink-0 text-[11px] font-medium uppercase tracking-wide ${mutedColor}`}
+            >
+              {card.status}
+            </span>
+          )}
         </div>
       }
     >

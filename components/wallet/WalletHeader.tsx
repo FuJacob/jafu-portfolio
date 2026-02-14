@@ -1,8 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Github, Linkedin, Mail } from "lucide-react";
-import { ThemeToggle } from "@/components/ThemeToggle";
 
 function XIcon({ className }: { className?: string }) {
   return (
@@ -19,7 +19,8 @@ function XIcon({ className }: { className?: string }) {
 
 interface WalletHeaderProps {
   name: string;
-  education: string;
+  icon?: string;
+  subtitle: string;
   socials: {
     linkedin: string;
     github: string;
@@ -32,23 +33,35 @@ interface WalletHeaderProps {
 
 export function WalletHeader({
   name,
-  education,
+  icon,
+  subtitle,
   socials,
   calendarLink,
   className,
 }: WalletHeaderProps) {
   return (
-    <header className={cn("py-2 sm:py-3", className)}>
-      <div className="flex justify-between">
-        {/* Left: Name + Education */}
-        <div>
-          <h1 className="text-headline text-foreground ">{name}</h1>
-          <p className="text-body text-muted-foreground">{education}</p>
+    <header className={cn("py-1.5 sm:py-2", className)}>
+      <div className="flex items-start justify-between gap-2">
+        <div className="flex items-center gap-2.5 sm:gap-3">
+          {icon && (
+            <div className="h-10 w-10 shrink-0 rounded-lg overflow-hidden sm:h-12 sm:w-12">
+              <Image
+                src={icon}
+                alt={name}
+                width={96}
+                height={96}
+                className="h-full w-full object-cover scale-150"
+              />
+            </div>
+          )}
+          <div>
+            <h1 className="text-headline text-foreground">{name}</h1>
+            <p className="text-body text-muted-foreground">{subtitle}</p>
+          </div>
         </div>
 
-        {/* Right: Socials + Book a meeting - aligned properly */}
-        <div className="flex flex-col items-end justify-center gap-2">
-          <div className="flex items-center gap-2">
+        <div className="flex w-36 shrink-0 items-end self-stretch flex-col justify-between pt-0.5 sm:w-40">
+          <div className="flex items-end gap-1.5 sm:gap-2">
             <a
               href={socials.linkedin}
               target="_blank"
@@ -83,8 +96,6 @@ export function WalletHeader({
             >
               <Mail className="h-4 w-4" />
             </a>
-            <div className="w-px h-3 bg-border mx-1" />
-            <ThemeToggle />
           </div>
           <a
             href={calendarLink}
