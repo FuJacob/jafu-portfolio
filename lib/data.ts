@@ -28,7 +28,7 @@ export const personalCard: AboutCard = {
   avatar: "/inner-content/random.jpeg",
   status: "Open to Internships",
   summary:
-    "I build products with clear user impact. Outside work, I like playing volleyball and badminton :)",
+    "Hi! I'm Jacob and I like building products that users love. Outside work, I like playing volleyball and badminton :)",
   media: {
     type: "image",
     src: "/inner-content/me.png",
@@ -50,7 +50,7 @@ export const educationCard: AboutCard = {
   },
   status: "Bachelor of Computer Science",
   summary:
-    "I study computer science at Waterloo. I focus on infrastructure, distributed systems, and product delivery. I interned at HubSpot, Kaimz, and Bridgewell.",
+    "I study CS at UWaterloo. I'm really interested in infrastructure, distributed systems, and shipping fast. Would love to get into the startup space.",
 };
 
 export const experiences: ExperienceCard[] = [
@@ -63,7 +63,7 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineering Intern (AI-Editor Platform)",
     period: "Winter 2026",
     summary:
-      "Built AI editor flows that turn prompts into structured, brand-safe modules.",
+      "Currently working on HubSpot's new AI Content Editor so marketers can create beautiful layouts with natural language.",
     description:
       "I worked on HubSpot's AI Platform team for the Content Editor.\n\nI owned orchestration across prompt parsing, module generation, and validation. The flow improved consistency and speed for marketing teams building production pages.",
     bullets: [],
@@ -83,7 +83,7 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineering Intern (Security Platform)",
     period: "Fall 2025",
     summary:
-      "Built a Go security agent across 20+ devices. Shipped a RAG assistant that cut investigation time by 70%.",
+      "Shipped a security monitoring agent in Go, enabling real-time collection of system logs and network events with automated AWS S3 storage pipelines.",
     description:
       "I built a Go agent that collected logs from 20+ devices.\n\nI added JWT auth and streamed records to S3. I shipped a RAG assistant for analysts. Incident investigation time dropped 70%.",
     bullets: [],
@@ -98,7 +98,7 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineering Intern (Sales Workspace)",
     period: "Summer 2025",
     summary:
-      "Improved Sales Workspace performance. Page load speed increased 12%, payload size dropped 35%.",
+      "Shipped HubSpot's next-gen Sales Workspace, improving user-workflow efficiency by 15% across 200k+ daily active sales reps.",
     description:
       "I worked on Sales Workspace used by 200k+ reps each day.\n\nI tuned GraphQL caching and query patterns, which improved load speed by 12%. I resolved 45+ support tickets and reduced payload size by 35%.",
     bullets: [],
@@ -118,7 +118,7 @@ export const experiences: ExperienceCard[] = [
     role: "Software Engineering Intern (Client Onboarding)",
     period: "Winter 2025",
     summary:
-      "Built onboarding APIs and document checks. Added email scheduling and increased document completion by 28%.",
+      "Shipped a full-stack client onboarding portal, accelerating client onboarding by 35% and reducing manual processing time by 15+ hours per week.",
     description:
       "I built REST APIs for document upload and validation.\n\nThe new flow cut onboarding time by 35%. I shipped automated email scheduling, which increased completion rates by 28%.",
     bullets: [],
