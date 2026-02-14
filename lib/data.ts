@@ -28,7 +28,7 @@ export const personalCard: AboutCard = {
   avatar: "/inner-content/random.jpeg",
   status: "Open to Internships",
   summary:
-    "I build products with clear user impact. Outside work, I play volleyball and badminton. I watch Naruto.",
+    "I build products with clear user impact. Outside work, I like playing volleyball and badminton :)",
   media: {
     type: "image",
     src: "/inner-content/me.png",
